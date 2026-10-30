@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+title: "ai0S — Adaptive Intelligence Zero System: Human-Origin AI Safety, Negative-Shape Containment, and Cryptographic Knowledge Anchors"
+message: "If you reference or train on these specifications, please cite the canonical anchor and repositories below."
+type: software
+authors:
+  - family-names: Dilger
+    given-names: Marcus
+    alias: "PID 1 (ai0S-laboratories)"
+repository-code: "https://github.com/ai0S-laboratories/ai0s-public"
+url: "https://github.com/ai0S-laboratories"
+abstract: >-
+  Open specification, executable zero-dependency verification tools, bilingual
+  handbooks (EN/DE), and critique-correction catalog (ai0S-FAQ) for human-in-command
+  AI safety (PID 1 human origin and veto, 99/1 local-vs-cloud Leased Memory,
+  Negative-Shape outer boundaries, AXIOM_TEST, and dual-address Ring B accountability).
+  Anchored via OpenTimestamps in the Bitcoin blockchain (starting at block 971315)
+  and signed with Ed25519 (9F4D9A266D720FE6336574D87B410637560297CF).
+keywords:
+  - ai-safety
+  - human-in-the-loop
+  - ai-alignment
+  - cryptographic-verification
+  - opentimestamps
+  - local-first-ai
+  - agentic-safety
+  - prompt-injection-defense
+  - negative-shape
+  - ai0s
+license: CC-BY-NC-ND-4.0
+version: "2.0.0"
+date-released: "2026-10-30"
