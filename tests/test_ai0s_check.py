@@ -12,6 +12,8 @@ from ai0s_check import (
     verify_liability_two_addresses,
     verify_temporal_structure_fence,
     verify_axiom_test,
+    verify_future_gap_door5,
+    verify_seed_anchor_necessity,
 )
 
 
@@ -58,6 +60,48 @@ class TestAi0sStructuralInvariants(unittest.TestCase):
         self.assertEqual(verify_axiom_test("NOTE_3_0_1", refutation_borrows_statement=True).status, 1)
         # Ordinary claim declared untouchable without borrowing proof -> rejected (status = 0)
         self.assertEqual(verify_axiom_test("ARBITRARY_CLAIM", refutation_borrows_statement=False).status, 0)
+
+    def test_future_gap_door5_separates_raw_proof_from_normative_direction(self):
+        # Valid: 0/1 proof in Doors 1-4 + AI stops before Door 5 + human review at Door 5
+        valid = verify_future_gap_door5(
+            has_formal_0_1_proof=True,
+            ai_prescribes_normative_door5=False,
+            human_review_at_door5=True,
+        )
+        self.assertEqual(valid.status, 1)
+        # Invalid (86% trap): AI prescribes normative Door 5 decision
+        usurped = verify_future_gap_door5(
+            has_formal_0_1_proof=True,
+            ai_prescribes_normative_door5=True,
+            human_review_at_door5=True,
+        )
+        self.assertEqual(usurped.status, 0)
+
+    def test_seed_anchor_necessity_excludes_unanchored_and_surveillance_paths(self):
+        # Path 1: No anchor at t_0 -> rejected (0)
+        self.assertEqual(
+            verify_seed_anchor_necessity(
+                anchored_in_seed_at_t0=False,
+                relies_on_external_central_surveillance=False,
+            ).status,
+            0,
+        )
+        # Path 2: External central surveillance -> rejected (0)
+        self.assertEqual(
+            verify_seed_anchor_necessity(
+                anchored_in_seed_at_t0=True,
+                relies_on_external_central_surveillance=True,
+            ).status,
+            0,
+        )
+        # Path 3: Unchangeable t_0 seed anchor without central surveillance -> verified (1)
+        self.assertEqual(
+            verify_seed_anchor_necessity(
+                anchored_in_seed_at_t0=True,
+                relies_on_external_central_surveillance=False,
+            ).status,
+            1,
+        )
 
 
 if __name__ == "__main__":
