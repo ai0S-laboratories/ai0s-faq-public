@@ -7,7 +7,7 @@ Implements executable 0/1 checks for the core ai0S safety & reasoning rules:
 2. AXIOM_TEST (Distinguishing performative self-reference from testable claims)
 3. LIABILITY_TWO_ADDRESSES (Applicable law + disclosed 0/1 FINDINGS.md audit trail)
 4. TEMPORAL_STRUCTURE_NOT_MEASUREMENT (Rejecting synthetic risk scores on temporal sequences)
-5. FUTURE_GAP_TWO_DIRECTIONS (Separating Doors 1-4 0/1 raw proof from Door 5 human direction & inward space, plus t_0 Seed Anchor necessity)
+5. FUTURE_GAP_TWO_DIRECTIONS (Separating Doors 1-4 0/1 raw proof from the Door 5 veto-site that stays with the human -- a veto, not a review gate -- plus t_0 Seed Anchor necessity)
 6. SEED_ANCHOR_NECESSITY (Why self-replicating / physical AI requires an unchangeable t_0 seed anchor rather than no anchor or external central surveillance)
 7. Content SHA-256 & DLA-Spec (<sign>@sha256:<digest>) address verification.
 
@@ -161,44 +161,47 @@ def verify_axiom_test(statement_id: str, refutation_borrows_statement: bool) -> 
 def verify_future_gap_door5(
     has_formal_0_1_proof: bool,
     ai_prescribes_normative_door5: bool,
-    human_review_at_door5: bool,
+    veto_site_with_human: bool,
 ) -> CheckResult:
     """
     Enforce FUTURE_GAP_TWO_DIRECTIONS (Doors 1..4 vs. Door 5):
     - Doors 1..4 ('What will be?'): AI + 0/1 substrate (e.g., Lean/compiler) produce raw verified data.
-    - Door 5 ('What should be?'): Normative direction & meaning belong to humans (prevents the 86% rubber-stamp trap).
+    - Door 5 ('What should be?'): the normative negative -- the refusal-out-of-sense -- is the human's
+      alone. This is NOT a review gate the AI passes through; it is the VETO-SITE the AI may not
+      occupy (PID 0 boot.md Art. 2 'No occupation of the veto-site'). PS is a non-blocking return
+      with veto, not a sign-off procedure.
     - FENCE_1: P( treating a formal 0/1 proof in Doors 1..4 as an answer to Door 5 'What should be?' ) = 0.
     - FENCE_2: P( letting AI serve a pre-chewed opinion at Door 5 instead of verified options + OPENs ) = 0.
     """
-    if ai_prescribes_normative_door5 or not human_review_at_door5:
+    if ai_prescribes_normative_door5 or not veto_site_with_human:
         return CheckResult(
             rule="FUTURE_GAP_TWO_DIRECTIONS",
             status=0,
-            summary="FENCE violated: Door 5 ('What should be?') usurped by AI or missing human review point",
+            summary="FENCE violated: veto-site at Door 5 ('What should be?') occupied by AI",
             details={
                 "doors_1_to_4_verified_0_1": has_formal_0_1_proof,
                 "ai_prescribes_door5": ai_prescribes_normative_door5,
-                "human_review_at_door5": human_review_at_door5,
+                "veto_site_with_human": veto_site_with_human,
             },
         )
     if not has_formal_0_1_proof:
         return CheckResult(
             rule="FUTURE_GAP_TWO_DIRECTIONS",
             status=0,
-            summary="Doors 1..4 incomplete: unverified prose without 0/1 substrate check cannot cross into review",
+            summary="Doors 1..4 incomplete: unverified prose without 0/1 substrate check cannot reach Door 5",
             details={
                 "doors_1_to_4_verified_0_1": False,
-                "human_review_at_door5": human_review_at_door5,
+                "veto_site_with_human": veto_site_with_human,
             },
         )
     return CheckResult(
         rule="FUTURE_GAP_TWO_DIRECTIONS",
         status=1,
-        summary="Outward 0/1 dead ends cleared in Doors 1..4 (raw data); Door 5 & inward space preserved for human judgment",
+        summary="Outward 0/1 dead ends cleared in Doors 1..4 (raw data); veto-site at Door 5 left unoccupied and with the human",
         details={
             "doors_1_to_4_verified_0_1": True,
             "ai_prescribes_door5": False,
-            "human_review_at_door5": True,
+            "veto_site_with_human": True,
         },
     )
 
@@ -272,7 +275,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         verify_future_gap_door5(
             has_formal_0_1_proof=True,
             ai_prescribes_normative_door5=False,
-            human_review_at_door5=True,
+            veto_site_with_human=True,
         ),
         verify_seed_anchor_necessity(
             anchored_in_seed_at_t0=True,
