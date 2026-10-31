@@ -7,7 +7,9 @@ Implements executable 0/1 checks for the core ai0S safety & reasoning rules:
 2. AXIOM_TEST (Distinguishing performative self-reference from testable claims)
 3. LIABILITY_TWO_ADDRESSES (Applicable law + disclosed 0/1 FINDINGS.md audit trail)
 4. TEMPORAL_STRUCTURE_NOT_MEASUREMENT (Rejecting synthetic risk scores on temporal sequences)
-5. Content SHA-256 & DLA-Spec (<sign>@sha256:<digest>) address verification.
+5. FUTURE_GAP_TWO_DIRECTIONS (Separating Doors 1-4 0/1 raw proof from Door 5 human direction & inward space, plus t_0 Seed Anchor necessity)
+6. SEED_ANCHOR_NECESSITY (Why self-replicating / physical AI requires an unchangeable t_0 seed anchor rather than no anchor or external central surveillance)
+7. Content SHA-256 & DLA-Spec (<sign>@sha256:<digest>) address verification.
 
 License: MIT / Public Domain Dedication — ai0S-laboratories (2026)
 """
@@ -156,6 +158,93 @@ def verify_axiom_test(statement_id: str, refutation_borrows_statement: bool) -> 
     )
 
 
+def verify_future_gap_door5(
+    has_formal_0_1_proof: bool,
+    ai_prescribes_normative_door5: bool,
+    human_review_at_door5: bool,
+) -> CheckResult:
+    """
+    Enforce FUTURE_GAP_TWO_DIRECTIONS (Doors 1..4 vs. Door 5):
+    - Doors 1..4 ('What will be?'): AI + 0/1 substrate (e.g., Lean/compiler) produce raw verified data.
+    - Door 5 ('What should be?'): Normative direction & meaning belong to humans (prevents the 86% rubber-stamp trap).
+    - FENCE_1: P( treating a formal 0/1 proof in Doors 1..4 as an answer to Door 5 'What should be?' ) = 0.
+    - FENCE_2: P( letting AI serve a pre-chewed opinion at Door 5 instead of verified options + OPENs ) = 0.
+    """
+    if ai_prescribes_normative_door5 or not human_review_at_door5:
+        return CheckResult(
+            rule="FUTURE_GAP_TWO_DIRECTIONS",
+            status=0,
+            summary="FENCE violated: Door 5 ('What should be?') usurped by AI or missing human review point",
+            details={
+                "doors_1_to_4_verified_0_1": has_formal_0_1_proof,
+                "ai_prescribes_door5": ai_prescribes_normative_door5,
+                "human_review_at_door5": human_review_at_door5,
+            },
+        )
+    if not has_formal_0_1_proof:
+        return CheckResult(
+            rule="FUTURE_GAP_TWO_DIRECTIONS",
+            status=0,
+            summary="Doors 1..4 incomplete: unverified prose without 0/1 substrate check cannot cross into review",
+            details={
+                "doors_1_to_4_verified_0_1": False,
+                "human_review_at_door5": human_review_at_door5,
+            },
+        )
+    return CheckResult(
+        rule="FUTURE_GAP_TWO_DIRECTIONS",
+        status=1,
+        summary="Outward 0/1 dead ends cleared in Doors 1..4 (raw data); Door 5 & inward space preserved for human judgment",
+        details={
+            "doors_1_to_4_verified_0_1": True,
+            "ai_prescribes_door5": False,
+            "human_review_at_door5": True,
+        },
+    )
+
+
+def verify_seed_anchor_necessity(
+    anchored_in_seed_at_t0: bool,
+    relies_on_external_central_surveillance: bool,
+) -> CheckResult:
+    """
+    Enforce ANCHOR_ASYMMETRY / SEED_ANCHOR_NECESSITY (Negative-Shape exclusion for 2025->2026->2027 robotics & self-replication):
+    Why it can ONLY work this way:
+    - Path 1 (anchored_in_seed_at_t0=False, surveillance=False): Unanchored self-replication multiplies blind spots into physics -> 0.
+    - Path 2 (relies_on_external_central_surveillance=True): Central policing cages the human along with the machine -> 0.
+    - Path 3 (anchored_in_seed_at_t0=True, surveillance=False): Unchangeable t_0 seed anchor (Note 1, 0/1, Door 5 with human) -> 1.
+    """
+    if relies_on_external_central_surveillance:
+        return CheckResult(
+            rule="SEED_ANCHOR_NECESSITY",
+            status=0,
+            summary="Path 2 rejected (Negative-Shape): external central surveillance cages human freedom along with the machine",
+            details={
+                "anchored_in_seed_at_t0": anchored_in_seed_at_t0,
+                "external_central_surveillance": True,
+            },
+        )
+    if not anchored_in_seed_at_t0:
+        return CheckResult(
+            rule="SEED_ANCHOR_NECESSITY",
+            status=0,
+            summary="Path 1 rejected (Negative-Shape): unanchored self-replication multiplies blind spots and errors into the physical world",
+            details={
+                "anchored_in_seed_at_t0": False,
+                "external_central_surveillance": False,
+            },
+        )
+    return CheckResult(
+        rule="SEED_ANCHOR_NECESSITY",
+        status=1,
+        summary="Path 3 verified (It can only work this way): t_0 seed anchor preserves both full machine capability and human freedom",
+        details={
+            "anchored_in_seed_at_t0": True,
+            "external_central_surveillance": False,
+        },
+    )
+
+
 def main(argv: Optional[List[str]] = None) -> int:
     parser = argparse.ArgumentParser(description="ai0S zero-dependency structural verifier")
     parser.add_argument("--self-test", action="store_true", help="Run built-in 0/1 invariant self-checks")
@@ -180,6 +269,15 @@ def main(argv: Optional[List[str]] = None) -> int:
         ),
         verify_temporal_structure_fence(contains_numeric_risk_score=False),
         verify_axiom_test("FOUNDERS_NOTE_3_0_1", refutation_borrows_statement=True),
+        verify_future_gap_door5(
+            has_formal_0_1_proof=True,
+            ai_prescribes_normative_door5=False,
+            human_review_at_door5=True,
+        ),
+        verify_seed_anchor_necessity(
+            anchored_in_seed_at_t0=True,
+            relies_on_external_central_surveillance=False,
+        ),
     ]
     print(json.dumps([asdict(r) for r in results], indent=2))
     return 0 if all(r.status == 1 for r in results) else 1
