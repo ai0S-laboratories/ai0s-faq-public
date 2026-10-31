@@ -16,7 +16,6 @@ from ai0s_check import (
     verify_seed_anchor_necessity,
 )
 
-
 class TestAi0sStructuralInvariants(unittest.TestCase):
     def test_dla_address_valid_and_digest_match(self):
         payload = b"HUMANs and AIs collaborate for accelerated evolution."
@@ -62,20 +61,30 @@ class TestAi0sStructuralInvariants(unittest.TestCase):
         self.assertEqual(verify_axiom_test("ARBITRARY_CLAIM", refutation_borrows_statement=False).status, 0)
 
     def test_future_gap_door5_separates_raw_proof_from_normative_direction(self):
-        # Valid: 0/1 proof in Doors 1-4 + AI stops before Door 5 + human review at Door 5
+        # Valid: 0/1 proof in Doors 1-4 + AI stops before Door 5 + veto-site left with the human
         valid = verify_future_gap_door5(
             has_formal_0_1_proof=True,
             ai_prescribes_normative_door5=False,
-            human_review_at_door5=True,
+            veto_site_with_human=True,
         )
         self.assertEqual(valid.status, 1)
         # Invalid (86% trap): AI prescribes normative Door 5 decision
         usurped = verify_future_gap_door5(
             has_formal_0_1_proof=True,
             ai_prescribes_normative_door5=True,
-            human_review_at_door5=True,
+            veto_site_with_human=True,
         )
         self.assertEqual(usurped.status, 0)
+        # Invalid: veto-site handed to the AI, i.e. no human holder of the negative
+        no_veto_holder = verify_future_gap_door5(
+            has_formal_0_1_proof=True,
+            ai_prescribes_normative_door5=False,
+            veto_site_with_human=False,
+        )
+        self.assertEqual(no_veto_holder.status, 0)
+        # The failure is named as an occupied veto-site, NOT as a missing review gate.
+        self.assertIn("veto-site", usurped.summary)
+        self.assertNotIn("review point", usurped.summary)
 
     def test_seed_anchor_necessity_excludes_unanchored_and_surveillance_paths(self):
         # Path 1: No anchor at t_0 -> rejected (0)
