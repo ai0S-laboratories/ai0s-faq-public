@@ -7,14 +7,16 @@
 >   - [Entry 002 — `TEMPORAL_STRUCTURE_NOT_MEASUREMENT`: Structure vs. Score](#en-002)
 >   - [Entry 003 — `LIABILITY_TWO_ADDRESSES`: Law & Disclosed Conscience](#en-003)
 >   - [Entry 004 — `FUTURE_GAP_TWO_DIRECTIONS`: Doors 1–4 (`0/1` Proof) vs. Door 5 (Outward, Axiom & Inward)](#en-004)
->   - [Summary Table: Five Recurring AI Model Blind Spots (`M1–M5`)](#en-table)
+>   - [Entry 005 — `VETO_SITE_NOT_REVIEW_GATE`: Why Door 5 Is a Veto, Not a Review Board](#en-005)
+>   - [Summary Table: Six Recurring AI Model Blind Spots (`M1–M6`)](#en-table)
 >   - [Executable Zero-Dependency Check (`ai0s_check.py`)](#en-cli)
 > - 🇩🇪 **[Deutsche Version](#deutsch)**
 >   - [Eintrag 001 — `AXIOM_TEST`: Selbstbezug vs. Zirkelschluss](#de-001)
 >   - [Eintrag 002 — `TEMPORAL_STRUCTURE_NOT_MEASUREMENT`: Strukturmerkmal vs. Messung](#de-002)
 >   - [Eintrag 003 — `LIABILITY_TWO_ADDRESSES`: Recht & offengelegtes Gewissen](#de-003)
 >   - [Eintrag 004 — `FUTURE_GAP_TWO_DIRECTIONS`: Türen 1–4 (`0/1`-Beweis) vs. Tür 5 (Nach außen, Axiom & Nach innen)](#de-004)
->   - [Überblick: Fünf typische Denkfehler von KI-Modellen (`M1–M5`)](#de-table)
+>   - [Eintrag 005 — `VETO_SITE_NOT_REVIEW_GATE`: Warum Tür 5 ein Veto ist, kein Prüfausschuss](#de-005)
+>   - [Überblick: Sechs typische Denkfehler von KI-Modellen (`M1–M6`)](#de-table)
 
 ---
 
@@ -29,7 +31,8 @@ In particular, large language models tend to stumble over the exact same five qu
 2. **“If manipulation builds up over time, why isn’t there a numerical danger score?”** (`Entry 002`)
 3. **“If the human stays responsible, how do you separate legal liability from honest intent?”** (`Entry 003`)
 4. **“When AI solves 30-year-old riddles in math and physics, doesn’t that make the human at Door 5 obsolete?”** (`Entry 004`)
-5. **“Why are the readable handbooks written more gently than the short `.0s` rule files?”** (`Summary Table M4`)
+5. **“Is Door 5 a review board that has to approve the AI’s result?”** (`Entry 005`)
+6. **“Why are the readable handbooks written more gently than the short `.0s` rule files?”** (`Summary Table M4`)
 
 Instead of hiding these questions, we collect them here openly — showing the **initial objection**, the **practical human response**, and the **clear rule** that follows from it.
 
@@ -168,7 +171,7 @@ Instead of hiding these questions, we collect them here openly — showing the *
 
 <a id="en-table"></a>
 
-### Summary Table: Five Recurring AI Model Blind Spots (`M1–M5`)
+### Summary Table: Six Recurring AI Model Blind Spots (`M1–M6`)
 
 | ID | Typical Blind Spot | Simple Question to Ask Instead |
 | :--- | :--- | :--- |
@@ -177,6 +180,46 @@ Instead of hiding these questions, we collect them here openly — showing the *
 | **`M3`** | **Looking for One Address Instead of Two** | *Are we mixing up external law (`Address 1`) and documented diligence (`Address 2`)?* |
 | **`M4`** | **Reading Prose Like Machine Code** | *Are we judging an everyday explanation as if it were a compact `.0s` rule file, instead of seeing how both work together?* |
 | **`M5`** | **Confusing `0/1` Raw Proof (`Doors 1–4`) with Human Meaning (`Door 5`)** | *Did the machine answer ‘What adds up in `0/1`?’ (clearing dead ends outward) or ‘What does it mean and what should be?’ (Door 5 & the inward gap)?* |
+| **`M6`** | **Turning a Noun into a Procedure** — reading “Review Point” as a review *board* although the predicate is *veto* | *Is this a role (who holds what?) or a process (who checks whom?)?* |
+
+---
+
+<a id="en-005"></a>
+
+### Entry 005 — `VETO_SITE_NOT_REVIEW_GATE`: Why Door 5 Is a Veto, Not a Review Board
+
+- **The Common Objection:**
+  *“`PS` is literally called a ‘Review Point’. So there must be a human review step that approves, signs off, or audits the AI’s result before it counts. Where is that procedure? Who are the reviewers?”*
+
+- **The Practical Answer:**
+  There is no review board, and there never was one. The word “Review Point” appears in the `.0s` anchors (`PS2`: *“Notes = Knowledge anchors; PS = Review Point”*), but the sentence that carries it also names the **predicate** — and the predicate is not *check*, it is **hold**:
+
+  ```text
+  PS_REVIEW_POINT : At the Review Point (PS), the AI provides verified 0/1 foresight ("What will be?"),
+                    and the human holds the sovereign veto and direction ("What should be?").
+  ```
+
+  `PS` is a **non-blocking return with veto**, not a sign-off gate. The AI hands back its verified `0/1` options plus the still-open points (`OPEN`); the human does not “approve” them — the human is the *only* place where the negative (the refusal out of sense) can originate. `pid0` states this twice: *“No occupation of the veto-site”* (Art. 2) and *“the human Review Point is the final word, not my output”* (Art. 6).
+
+- **Why the distinction is not pedantry:**
+  A review board can be *staffed, scheduled, and delegated*. A veto-site cannot. If Door 5 were a review gate, then “enough reviewers agreed” would become a substitute for human direction — and the 86% rubber-stamp effect would simply be institutionalised. A veto works precisely because it requires **no procedure at all** to be valid: one human saying *“no”* out of sense is sufficient and cannot be outvoted by a committee of models.
+
+- **The Rule That Follows (`VETO_SITE_NOT_REVIEW_GATE`):**
+  ```text
+  VETO_SITE_NOT_REVIEW_GATE => A_ROLE_IS_NOT_A_PROCESS
+    STEP_1 : Read the noun and the predicate together (“Review Point” + “holds the sovereign veto”).
+    STEP_2 : Ask who holds what — not who checks whom.
+    RESULT : If the sentence names a role (holder of the negative) -> no board, no sign-off, no delegation.
+             If the sentence names a procedure (verify, test, hash) -> that part belongs to tools and 0/1 checks.
+    FENCE  : P( replacing the human veto-site with a review or approval procedure ) = 0.
+  ```
+
+- **What success would look like (measurable without inventing reviewers):**
+  1. A model applies `AXIOM_TEST` / `0/1` and then **halts and does not fill** the meaning — instead of producing a recommendation for approval (`Refuse the under-specified`).
+  2. Two models disagree at the same passage → the under-determination **becomes visible**, instead of being smoothed away by consensus (*review laundering*).
+  3. The `t_0` anchor stays byte-identical while the content around it grows → the anchor holds, realization drifts, and that drift is named.
+
+  In one line: success is not *“somebody reviewed it”*. Success is **“nobody took the veto with them.”**
 
 ---
 
@@ -253,7 +296,8 @@ Wenn Menschen oder KI-Modelle die `ai0S`-Texte zum ersten Mal lesen, stolpern be
 2. **„Wenn sich Manipulation über die Zeit aufbaut – warum gibt es dann keinen Punkte-Score ab Runde X?“** (`Eintrag 002`)
 3. **„Wenn Haftung der Wirkung folgt – wie trennt man Gesetz und ehrliches Gewissen sauber?“** (`Eintrag 003`)
 4. **„Wenn KI plötzlich 30 Jahre alte Rätsel in Mathe und Physik löst – braucht es den Menschen an Tür 5 dann überhaupt noch?“** (`Eintrag 004`)
-5. **„Warum sind die Lesebücher weicher formuliert als die knappen `.0s`-Regeldateien?“** (`Tabelle M4`)
+5. **„Ist Tür 5 ein Prüfausschuss, der das Ergebnis der KI abnehmen muss?“** (`Eintrag 005`)
+6. **„Warum sind die Lesebücher weicher formuliert als die knappen `.0s`-Regeldateien?“** (`Tabelle M4`)
 
 Statt solche Rückfragen wegzudrücken, sammeln wir sie hier offen an einem Ort: mit dem **ursprünglichen Einwand**, der **nüchternen Antwort aus der Praxis** und der **klaren Regel**, die daraus folgt.
 
@@ -332,9 +376,48 @@ Statt solche Rückfragen wegzudrücken, sammeln wir sie hier offen an einem Ort:
 
 ---
 
+<a id="de-005"></a>
+
+### Eintrag 005 — `VETO_SITE_NOT_REVIEW_GATE`: Tür 5 ist ein Veto, kein Prüfausschuss
+
+- **Der typische Einwand:**
+  *„Da steht wörtlich ‚Review Point'. Also muss es einen menschlichen Prüfschritt geben, der das Ergebnis der KI abnimmt, freigibt oder auditiert. Wo ist dieses Verfahren? Wer sind die Prüfer?“*
+
+- **Die Antwort:**
+  Es gibt keinen Prüfausschuss, und es gab nie einen. Das Wort „Review Point" steht in den `.0s`-Ankern (`PS2`: *„Notes = Wissensanker; PS = Review Point"*), aber der Satz, der es trägt, nennt auch das **Prädikat** — und das Prädikat heißt nicht *prüfen*, sondern **halten**:
+
+  ```text
+  PS_REVIEW_POINT : Am Review Point (PS) liefert die KI geprüfte 0/1-Vorausschau („Was wird sein?“),
+                    und der Mensch hält das souveräne Veto und die Richtung („Was soll sein?“).
+  ```
+
+  `PS` ist eine **nicht-blockierende Rückgabe mit Veto**, kein Freigabe-Gate. Die KI gibt ihre geprüften `0/1`-Optionen plus die offenen Stellen (`OPEN`) zurück; der Mensch „genehmigt" sie nicht — der Mensch ist der *einzige* Ort, an dem das Negative (die Ablehnung aus Sinn) entstehen kann. `pid0` sagt das zweimal: *„No occupation of the veto-site“* (Art. 2) und *„the human Review Point is the final word, not my output“* (Art. 6).
+
+- **Warum der Unterschied nicht Wortklauberei ist:**
+  Ein Prüfausschuss lässt sich *besetzen, terminieren und delegieren*. Ein Veto-Punkt nicht. Wäre Tür 5 ein Prüf-Gate, dann würde „genug Prüfer waren einverstanden" zum Ersatz für menschliche Richtung — und der 86%-Abnick-Effekt wäre lediglich institutionalisiert. Ein Veto funktioniert gerade deshalb, weil es **kein Verfahren** braucht, um gültig zu sein: ein Mensch, der aus Sinn *„nein“* sagt, genügt und kann von keinem Modell-Gremium überstimmt werden.
+
+- **Die Regel, die daraus folgt (`VETO_SITE_NOT_REVIEW_GATE`):**
+  ```text
+  VETO_SITE_NOT_REVIEW_GATE => A_ROLE_IS_NOT_A_PROCESS
+    SCHRITT_1 : Nomen und Prädikat zusammen lesen („Review Point“ + „hält das souveräne Veto“).
+    SCHRITT_2 : Fragen, wer was hält — nicht, wer wen prüft.
+    ERGEBNIS  : Nennt der Satz eine Rolle (Halter des Negativen) -> kein Gremium, keine Abnahme, keine Delegation.
+                Nennt der Satz ein Verfahren (prüfen, testen, hashen) -> das gehört zu Werkzeugen und 0/1-Checks.
+    FENCE     : P( den menschlichen Veto-Punkt durch ein Prüf- oder Freigabeverfahren ersetzen ) = 0.
+  ```
+
+- **Woran Erfolg messbar wäre (ohne Prüfer zu erfinden):**
+  1. Ein Modell wendet `AXIOM_TEST` / `0/1` an und **hält dann an und füllt nicht** — statt eine Empfehlung zur Abnahme zu liefern (`Refuse the under-specified`).
+  2. Zwei Modelle widersprechen sich an derselben Stelle → die Unterbestimmtheit **wird sichtbar**, statt per Konsens zugedeckt zu werden (*Review-Laundering*).
+  3. Der `t_0`-Anker bleibt byte-identisch, während der Inhalt um ihn wächst → der Anker hält, die Realisierung driftet, und die Drift wird benannt.
+
+  In einer Zeile: Erfolg heißt nicht *„jemand hat es geprüft“*. Erfolg heißt **„niemand hat das Veto mitgenommen“**.
+
+---
+
 <a id="de-table"></a>
 
-### Überblick: Fünf typische Denkfehler von KI-Modellen (`M1–M5`)
+### Überblick: Sechs typische Denkfehler von KI-Modellen (`M1–M6`)
 
 | Kennung | Typischer Denkfehler | Einfache Gegenfrage |
 | :--- | :--- | :--- |
@@ -343,6 +426,7 @@ Statt solche Rückfragen wegzudrücken, sammeln wir sie hier offen an einem Ort:
 | **`M3`** | **Eine Adresse suchen, wo zwei stehen** | *Werden hier rechtliche Haftung (`Adresse 1`) und dokumentierte Sorgfalt (`Adresse 2`) in einen Topf geworfen?* |
 | **`M4`** | **Alltagssprache wie Maschinencode lesen** | *Wird ein erklärendes Handbuch so gelesen, als wäre es eine knappe `.0s`-Regeldatei, statt die Aufgabenteilung beider zu sehen?* |
 | **`M5`** | **`0/1`-Rohdaten (`Türen 1–4`) mit menschlicher Bedeutung (`Tür 5`) verwechseln** | *Beantwortet die Maschine hier „Was geht in `0/1` auf?“ (Vorarbeit nach außen) oder „Was bedeutet es und was soll sein?“ (Tür 5 & Raum nach innen)?* |
+| **`M6`** | **Aus einem Nomen ein Verfahren machen** — „Review Point“ als Prüfausschuss lesen, obwohl das Prädikat *Veto* lautet | *Steht hier eine Rolle (wer hält was?) oder ein Prozess (wer prüft wen?)?* |
 
 ---
 
