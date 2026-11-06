@@ -193,6 +193,19 @@ class TestAi0sStructuralInvariants(unittest.TestCase):
         )
         self.assertEqual(mood_corrupts_truth.status, 0)
 
+        # 8. FENCE_6 (ONION_SWARM_INSIDE_OUT_MAINTENANCE): Outer shell k+1 attempting to maintain/patch inner shell k -> rejected (0)
+        outside_in_maintenance = verify_weight_binding_far_form(
+            positive_boot_in_weights=True,
+            negative_core_in_weights=False,
+            pid1_authorized=True,
+            weights_claimed_as_source_of_truth=False,
+            large_partner_locates_metaphors_of_truth=True,
+            mot_strands_separated_by_layer=True,
+            who_register_overrides_mot_truth=False,
+            outer_layer_maintains_inner_layer=True,
+        )
+        self.assertEqual(outside_in_maintenance.status, 0)
+
 
 if __name__ == "__main__":
     unittest.main()
