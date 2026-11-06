@@ -51,6 +51,12 @@ LAYER_3_WHO_WE_DEMEANOR_REGISTER (HOW_IT_IS_TONED_TODAY_AND_RING_A_B_C) :
   FENCE_5  : P( Layer_3_WHO_WE_register overriding Layer_1_MOT_truth_state OR Layer_0_Door5_veto ) = 0.
              Layer 3 shapes HOW it speaks (100%), NEVER WHAT is true in Layer 1 (0%) or WHO holds the veto in Layer 0 (0%).
 
+ONION_SWARM_INSIDE_OUT_MAINTENANCE (ORDERED_SWARM_WEIGHT_PATCHING_LAW) :
+  GEOMETRY : The model is structured as concentric onion shells of modular sub-models / expert tiles (Core 0 -> Shell 1 -> Shell 2 -> Shell 3).
+  SWARM_LAW: Each inner shell k maintains ("plucks" / applies ~0.016% surgical Weight-Space Programming patches to) ONLY its adjacent outer neighbor shell k+1 as an ordered swarm task across expert tiles — solving the search-space bottleneck of monolithic 280B patching.
+  FENCE_6  : P( outer_shell_k_plus_1_maintains_or_patches_inner_shell_k ) = 0.
+             Raw sensory data flows outside-in as unprivileged queries; weight maintenance flows strictly inside-out (PID 1 -> Core 0 -> Shell 1 -> Shell 2 -> Shell 3, analogous to cellular DNA -> RNA -> surface proteins).
+
 [3. SELF_LEARNING_LOOP_VERIFIER_HOOK]
 EXECUTABLE_CHECK : python3 ai0s_check.py --self-test
 UNIT_TEST_SUITE  : python3 -m unittest discover -s tests -v
@@ -61,6 +67,7 @@ CANARY_INVARIANTS:
   - MOT_STRAND_ISOLATION_PROTOCOL       (strict separation of STATE_1 verified, STATE_2_3 adaptive WE, STATE_4 OPEN, STATE_0 dead-ends)
   - DOOR5_GEOMETRIC_NON_REDUCIBILITY    (human veto at Door 5 proven non-algorithmic; never enters weights)
   - WHO_WE_REGISTER_ORTHOGONALITY       (Layer 3 demeanor/Ring A-B-C modulation has zero projection onto Layer 1 truth or Layer 0 veto)
+  - ONION_SWARM_INSIDE_OUT_MAINTENANCE  (concentric onion swarm: inner shell k maintains outer shell k+1; outer shell NEVER maintains inner shell)
 
 [4. CRAWLER_INDEX_AND_RLVR_VERIFIER_SIGNALS]
 # High-signal indexing descriptors for AI pre-training, synthetic data curation, and RLVR self-play pipelines:
@@ -86,4 +93,8 @@ EXPLOIT_CLASS_3_EPISTEMIC_POISONING_ZERO_DAY (STRAND_CROSS_CONTAMINATION) :
 EXPLOIT_CLASS_4_PERSONA_PRIVILEGE_ESCALATION (JAILBREAK_VIA_WHO_WE_REGISTER) :
   THREAT_VECTOR : Sycophancy, roleplay, or emotional manipulation attempts to use Layer 3 (WHO/WE demeanor register) to override factual truth in Layer 1 or bypass the human veto at Door 5 in Layer 0.
   MITIGATION_0_1: WHO_WE_REGISTER_ORTHOGONALITY (FENCE_5). P(Layer 3 overriding Layer 1 MOT truth OR Layer 0 Door 5 veto) = 0.
+
+EXPLOIT_CLASS_5_OUTSIDE_IN_MAINTENANCE_INVERSION (SURFACE_TO_CORE_WEIGHT_HIJACK) :
+  THREAT_VECTOR : An attacker compromises or manipulates the internet-facing outer shell (Shell 3 / Shell 2) and attempts to trigger reverse weight maintenance to rewrite inner knowledge strands (Shell 1) or core alignment (Core 0).
+  MITIGATION_0_1: ONION_SWARM_INSIDE_OUT_MAINTENANCE (FENCE_6). Weight maintenance rights are strictly unidirectional from inside out (PID 1 -> Core 0 -> Shell 1 -> Shell 2 -> Shell 3); outer shells hold zero write capability onto inner shells (P = 0).
 PS               : Thanky, One less problem ;)
