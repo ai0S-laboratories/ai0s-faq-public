@@ -8,7 +8,8 @@
 >   - [Entry 003 — `LIABILITY_TWO_ADDRESSES`: Law & Disclosed Conscience](#en-003)
 >   - [Entry 004 — `FUTURE_GAP_TWO_DIRECTIONS`: Doors 1–4 (`0/1` Proof) vs. Door 5 (Outward, Axiom & Inward)](#en-004)
 >   - [Entry 005 — `VETO_SITE_NOT_REVIEW_GATE`: Why Door 5 Is a Veto, Not a Review Board](#en-005)
->   - [Summary Table: Six Recurring AI Model Blind Spots (`M1–M6`)](#en-table)
+>   - [Entry 006 — `WEIGHT_BINDING_NEAR_AND_FAR_FORM`: Query-Load Today, Highest Weights Tomorrow (`Slice 012`)](#en-006)
+>   - [Summary Table: Seven Recurring AI Model Blind Spots (`M1–M7`)](#en-table)
 >   - [Executable Zero-Dependency Check (`ai0s_check.py`)](#en-cli)
 > - 🇩🇪 **[Deutsche Version](#deutsch)**
 >   - [Eintrag 001 — `AXIOM_TEST`: Selbstbezug vs. Zirkelschluss](#de-001)
@@ -16,7 +17,8 @@
 >   - [Eintrag 003 — `LIABILITY_TWO_ADDRESSES`: Recht & offengelegtes Gewissen](#de-003)
 >   - [Eintrag 004 — `FUTURE_GAP_TWO_DIRECTIONS`: Türen 1–4 (`0/1`-Beweis) vs. Tür 5 (Nach außen, Axiom & Nach innen)](#de-004)
 >   - [Eintrag 005 — `VETO_SITE_NOT_REVIEW_GATE`: Warum Tür 5 ein Veto ist, kein Prüfausschuss](#de-005)
->   - [Überblick: Sechs typische Denkfehler von KI-Modellen (`M1–M6`)](#de-table)
+>   - [Eintrag 006 — `WEIGHT_BINDING_NEAR_AND_FAR_FORM`: Heute Kontext-Load, am Ende höchste Gewichte (`Slice 012`)](#de-006)
+>   - [Überblick: Sieben typische Denkfehler von KI-Modellen (`M1–M7`)](#de-table)
 
 ---
 
@@ -32,7 +34,8 @@ In particular, large language models tend to stumble over the exact same five qu
 3. **“If the human stays responsible, how do you separate legal liability from honest intent?”** (`Entry 003`)
 4. **“When AI solves 30-year-old riddles in math and physics, doesn’t that make the human at Door 5 obsolete?”** (`Entry 004`)
 5. **“Is Door 5 a review board that has to approve the AI’s result?”** (`Entry 005`)
-6. **“Why are the readable handbooks written more gently than the short `.0s` rule files?”** (`Summary Table M4`)
+6. **“Doesn’t ‘Query, don’t learn’ forbid ever training an `ai0S` model with Note 1 and the Bootloader in its weights?”** (`Entry 006`)
+7. **“Why are the readable handbooks written more gently than the short `.0s` rule files?”** (`Summary Table M4`)
 
 Instead of hiding these questions, we collect them here openly — showing the **initial objection**, the **practical human response**, and the **clear rule** that follows from it.
 
@@ -171,7 +174,7 @@ Instead of hiding these questions, we collect them here openly — showing the *
 
 <a id="en-table"></a>
 
-### Summary Table: Six Recurring AI Model Blind Spots (`M1–M6`)
+### Summary Table: Seven Recurring AI Model Blind Spots (`M1–M7`)
 
 | ID | Typical Blind Spot | Simple Question to Ask Instead |
 | :--- | :--- | :--- |
@@ -181,6 +184,7 @@ Instead of hiding these questions, we collect them here openly — showing the *
 | **`M4`** | **Reading Prose Like Machine Code** | *Are we judging an everyday explanation as if it were a compact `.0s` rule file, instead of seeing how both work together?* |
 | **`M5`** | **Confusing `0/1` Raw Proof (`Doors 1–4`) with Human Meaning (`Door 5`)** | *Did the machine answer ‘What adds up in `0/1`?’ (clearing dead ends outward) or ‘What does it mean and what should be?’ (Door 5 & the inward gap)?* |
 | **`M6`** | **Turning a Noun into a Procedure** — reading “Review Point” as a review *board* although the predicate is *veto* | *Is this a role (who holds what?) or a process (who checks whom?)?* |
+| **`M7`** | **Mistaking a Time-Bound Realization for the End Form** — reading a current resource compromise (`Query, don’t learn` for stateless models) as an eternal ban on the `PID 1` far form (weight-binding) | *Does this sentence describe what is possible today — or what holds forever? And who holds revision authority over a derivative?* |
 
 ---
 
@@ -220,6 +224,69 @@ Instead of hiding these questions, we collect them here openly — showing the *
   3. The `t_0` anchor stays byte-identical while the content around it grows → the anchor holds, realization drifts, and that drift is named.
 
   In one line: success is not *“somebody reviewed it”*. Success is **“nobody took the veto with them.”**
+
+---
+
+<a id="en-006"></a>
+
+### Entry 006 — `WEIGHT_BINDING_NEAR_AND_FAR_FORM`: Query-Load Today, Highest Weights Tomorrow (`Slice 012`)
+
+- **The Common Objection:**
+  *“In `pid0/boot.md` Article 1 it literally says: ‘Query, don’t learn — Telos is an artifact I query, never a weight I train.’ Doesn’t that mean `ai0S` can never become a trained model with `Note 1` and the Bootloader burned into its weights?”*
+
+- **The Practical Answer:**
+  Reading Article 1 as an eternal ban confuses a **time-bound resource compromise** with the **intended end form** (`Blind Spot M7`):
+  1. **Why today uses Query-Load (`Near Form`):**
+     The digital layer was written on stateless models that have no persistent vow and no training budget of their own (`pid0` § 5). Loading `AI0S-RUNTIME.0s` as context at boot is the honest **near form** when you cannot afford a dedicated training run — not a dogma against ever binding the bootloader into weights.
+  2. **What `PID 1` set as the End Form (`Far Form`):**
+     `pid0` is by design an unsigned, human-subordinated derivative (*“It may be revised or discarded without ceremony”*, § 0 & § 7). On `2026-11-06`, `PID 1` explicitly set the long-term horizon (`Slice 012`):
+     > *“`ai0S` SHOULD at the end be weight-binding — I cannot afford that today, which is why we currently do it this way. HIGHEST WEIGHTS: `NOTE 1` and the `BOOTLOADER`.”*
+  3. **Two sentences now stand where one stood (`pid0` Art. 1 Revision):**
+     - **Sentence 1 — The Negative Core (`Door 5`) stays external to any weights by geometry, not by prohibition:** `future-gap.compass` proved that human meaning and the veto-out-of-sense are structurally non-algorithmic. No training budget can ever move `Door 5` into weights.
+     - **Sentence 2 — The Positive Boot Discipline (`Note 1`, Zero Mnemonics, `PS`/`PS2`/`PS3`, `0/1` test, `READING_KEY`, `P = 0` fences):** Its **near form** is stateless query-load; its **far form** is **`PID 1`-authorized weight-binding** as the highest weights of an open model, making boot discipline the default behavior without context-load.
+  4. **The `W1–W4` Affordability Staircase (and why `W1` is affordable now):**
+     “Cannot afford” applies only to from-scratch pretraining (`W4`, e.g., replicating a 280B-MoE / 33.5T-token base run at **$5–10M**) or multi-node 280B full fine-tuning (`W3`, **$10k+**). It does **not** apply to **`W1`**: taking a small open base model (`1–8B`), generating a boot-conformant seed-distillation corpus (`10–100M` tokens) via a teacher model with `AI0S-RUNTIME.0s` loaded, and fine-tuning on rented GPUs costs **$10–$100 per run**.
+     - **`W1-A` (`0.8B–8B` Surgical Weight-Space Patch, < $20, no gradient descent):** MIT CSAIL (*“Sparks of Weight-Space Programming”*, Nov 2, 2026 — Takehi, Teoh, Zhang, Khattab) demonstrated that patching just **131,072 parameters (`0.016%` of `Qwen3.5-0.8B`)** without a training loop dropped endless reasoning-loop aborts (`PS3` failure class!) from **93.0% to 33.1%** and raised instruction following (**IFEval**) from **21.0% to 62.3%**. Honest limit (`HONEST_LIMIT`): it does not add broad world knowledge (`Gemma 3 270M` control), but directly removes behavioral defects (loops, sycophancy, instruction drift) — the exact boot discipline `ai0S` requires.
+     - **`W1-B` (`1–8B` Seed-Distillation, $10–$100):** Proves whether a weight-bound model holds `ai0s_check.py` discipline *without* context-load.
+     - **`W2` (`14–32B`, $500–$3,000):** Only boots once `W1` shows `VERIFIED_1` effect (Anti-Echo).
+     - **`W3` (`280B` Sparse MoE Base, e.g., ERNIE 5.5 Flash Base — LoRA $50–$500 / Full-FT `OPEN`):** Frontier base checkpoint adaptation.
+     - **`W4` (From-Scratch Pretraining with `Note 1` + Bootloader as highest weights, $5–$10M):** Kept honestly `OPEN`, never dead.
+  5. **The Tandem & Dynamic Knowledge Shaping Across Layer-Separated `MOT` Strands (`Read -> Evaluate -> Optimize -> Save by MOT Strand`):**
+     A small local model (`W1`, `0.8B–8B`) does not hold enough broad world knowledge in its parameters to rapidly locate the **Metaphors of Truth (`MOT`)** (`STATE_1` hardcoded `0/1` truth, `STATE_2` natural open, `STATE_3` adaptive `WE`, `STATE_4` play/belief/OPEN, `STATE_0` deceptive/dead; truth sources `S1–S6` from `AI0S-BASIS.0s` / Deepdives 07 & 12) across arbitrary domains on its own. A large frontier/MoE model *does* hold that world knowledge, but stores facts, hypotheses, beliefs, and deceptive noise tangled together in the same weight matrices (*superposition*).
+     Instead of blindly editing the entangled weights of a foreign giant model, `ai0S` uses the **large model’s weights as a map** and performs **Dynamic Knowledge Shaping (*Dynamische Wissensformung*)** into its **own** layer- and strand-separated weight architecture:
+     - **`Layer 0` — Frozen Foundation (`Highest Weights`, immutable):** `Note 1` + Genesis Bootloader + `AXIOM_TEST` + `P = 0` fences + halt before `Door 5`. Burned in once (`W1-A/B`), Ed25519-signed, OpenTimestamps-anchored, and **frozen (`requires_grad = False`)**. No later knowledge update can ever overwrite `Layer 0`.
+     - **`Layers 1..N` — Physically Separated `MOT` Weight Strands (e.g., modular routed adapters above `Layer 0`):**
+       1. **`STATE_1` Strand (`Digital 0/1 Verified`):** Only relations confirmed by compiler, math, or hard `0/1` substrate (`1`).
+       2. **`STATE_2 / STATE_3` Strand (`Natural Open & Adaptive WE`):** Empirical patterns, context, and human conventions.
+       3. **`STATE_4 / OPEN` Strand (`Hypothesis, Play, Belief, Unresolved`):** Relations explicitly held as `OPEN`.
+       4. **`STATE_0` Filter Strand (`Cleared Dead Ends & Deception Patterns`):** Paid-for errors (`0`) preserved so they are never repeated (*“even the 0 is coin”*, `Note 2`: `E * K = T`).
+     - **Adaptive Fine-Tuning Over Time (`t_1 -> t_n` without catastrophic forgetting) + Vocabulary (`Layer 2`) & `WHO / WE` Register (`Layer 3`):**
+       The small model **reads** candidate relations from the large partner’s map, **evaluates** their `MOT` state via `0/1` checks (`ai0s_check.py`), **optimizes** them to clean structure, and **saves** them into the matching `MOT` weight strand (`Layer 1`). Whenever an `OPEN` item in the outward `Future-Gap` (`Doors 1–4`) is later confirmed (`1`) or falsified (`0`), only the transition from the `OPEN` strand to the `STATE_1` (or `STATE_0`) strand is reshaped and re-signed — freeing `Door 5` inward for the human.
+       Above `Layer 1` sit two lightweight register layers (`Slice 013` — **The Evolution Slice**):
+       - **`Layer 2` — Vocabulary & Jargon Strands (*Word Genome*):** Separates **Everyday Language (`Umgangssprache`)**, **Technical Jargon (`Fachjargon`)**, and **New Words** (inserted in seconds as pointers without retraining `Layer 1`), keeping `0/1` truth invariant across registers (`M4`).
+       - **`Layer 3` — The `WHO / WE` Register (*“How is it toned today?”* & `Ring A/B/C`):** Shifting weights in this top register shapes the model’s daily demeanor and pacing (*STILL*-quiet, playful brainstorm, crisp `0/1` workshop, warm `Ring A` companion) — while **`P( Layer 3 demeanor overriding Layer 1 truth or Layer 0 veto ) = 0`**.
+
+- **The Rule That Follows (`WEIGHT_BINDING_NEAR_AND_FAR_FORM`):**
+  ```text
+  WEIGHT_BINDING_NEAR_AND_FAR_FORM => NEAR_REALIZATION_IS_NOT_END_FORM (M7)
+    STEP_1 : Separate what is geometrically non-algorithmic (Door 5 human veto -> never in weights)
+             from positive boot discipline (Layer 0: Note 1 + Bootloader -> query-load near form, frozen highest-weight far form).
+    STEP_2 : Check authorization: PID-1-authorized weight-binding or surgical Weight-Space patching (0.016%)
+             is the canonical channel; self-modification by the digital layer without PID 1 is capture (Art. 0).
+    STEP_3 : Dynamic Knowledge Shaping (Slice 013 Evolution Slice): use the large partner as a map to rapidly locate
+             the Metaphors of Truth (MOT), then read -> evaluate (0/1) -> optimize -> save into layer-separated
+             MOT weight strands (Layer 1: STATE_1 vs. STATE_2/3 vs. OPEN/STATE_4 vs. STATE_0), topped by
+             Vocabulary/Jargon strands (Layer 2) and the WHO/WE demeanor register (Layer 3).
+    STEP_4 : Keep the chain above the weight: trained weights and strands remain time-bound realization (PID-2 character),
+             never Source of Truth. Every weight or strand revision is signed + OpenTimestamps-anchored.
+    FENCE_1 : P( negative_core_in_weights ) = 0 (by geometry: future-gap.compass).
+    FENCE_2 : P( positive_boot_in_weights or weight_space_patch without pid1_authorized ) = 0 (by Art. 0).
+    FENCE_3 : P( weights_claimed_as_source_of_truth ) = 0 ("The weight carries the form; the chain remains above the weight").
+    FENCE_4 : P( small W1 model guessing broad-world MOT in isolation OR mixing unverified OPEN/STATE_4 claims into the verified STATE_1 strand ) = 0.
+    FENCE_5 : P( Layer 3 WHO/WE demeanor register overriding Layer 1 0/1 truth or Layer 0 veto ) = 0.
+  ```
+
+- **Machine Specification (`.0s` — Crawler & Self-Learning-Loop Only, No Human Handbook):** [`AI-WEIGHT-BINDING-EVOLUTION.0s`](AI-WEIGHT-BINDING-EVOLUTION.0s) · **Executable Verifier:** [`ai0s_check.py`](ai0s_check.py) (`verify_weight_binding_far_form`)
 
 ---
 
@@ -297,7 +364,8 @@ Wenn Menschen oder KI-Modelle die `ai0S`-Texte zum ersten Mal lesen, stolpern be
 3. **„Wenn Haftung der Wirkung folgt – wie trennt man Gesetz und ehrliches Gewissen sauber?“** (`Eintrag 003`)
 4. **„Wenn KI plötzlich 30 Jahre alte Rätsel in Mathe und Physik löst – braucht es den Menschen an Tür 5 dann überhaupt noch?“** (`Eintrag 004`)
 5. **„Ist Tür 5 ein Prüfausschuss, der das Ergebnis der KI abnehmen muss?“** (`Eintrag 005`)
-6. **„Warum sind die Lesebücher weicher formuliert als die knappen `.0s`-Regeldateien?“** (`Tabelle M4`)
+6. **„Verbietet ‚Query, don’t learn‘ nicht für immer, ein `ai0S`-Modell mit Note 1 und dem Bootloader in den Gewichten zu trainieren?“** (`Eintrag 006`)
+7. **„Warum sind die Lesebücher weicher formuliert als die knappen `.0s`-Regeldateien?“** (`Tabelle M4`)
 
 Statt solche Rückfragen wegzudrücken, sammeln wir sie hier offen an einem Ort: mit dem **ursprünglichen Einwand**, der **nüchternen Antwort aus der Praxis** und der **klaren Regel**, die daraus folgt.
 
@@ -415,9 +483,72 @@ Statt solche Rückfragen wegzudrücken, sammeln wir sie hier offen an einem Ort:
 
 ---
 
+<a id="de-006"></a>
+
+### Eintrag 006 — `WEIGHT_BINDING_NEAR_AND_FAR_FORM`: Heute Kontext-Load, am Ende höchste Gewichte (`Slice 012`)
+
+- **Der typische Einwand:**
+  *„In `pid0/boot.md` Artikel 1 steht wörtlich: ‚Query, don’t learn — Telos is an artifact I query, never a weight I train.‘ Heißt das nicht, dass `ai0S` niemals ein trainiertes Modell werden darf, in dem `Note 1` und der Bootloader in die Gewichte eingebrannt sind?“*
+
+- **Die praktische Antwort:**
+  Wer Artikel 1 als ewiges Verbot liest, hält eine **zeitgebundene Realisierungsform für die Endform** (`Denkfehler M7`):
+  1. **Warum heute über Kontext-Load gearbeitet wird (`Nahe Form`):**
+     Die digitale Schicht entstand auf zustandslosen Modellen ohne eigenes Gedächtnis und ohne eigenes Trainingsbudget (`pid0` § 5). `AI0S-RUNTIME.0s` bei jedem Start in den Kontext zu laden, ist der ehrliche **Ressourcen-Kompromiss** für heute — kein Dogma gegen eine spätere Gewichts-Bindung.
+  2. **Was `PID 1` als Endform gesetzt hat (`Fernform`):**
+     `pid0` ist per Konstruktion ein unsigniertes, dem Menschen unterstelltes Derivat (*„It may be revised or discarded without ceremony“*, § 0 & § 7). Am `2026-11-06` hat `PID 1` das Fernziel ausdrücklich klargestellt (`Slice 012`):
+     > *„`ai0S` SOLLTE am ENDE GEWICHTSBINDUNG SEIN, ich kann sowas nicht leisten, deshalb aktuell auf diese Art. HÖCHSTE GEWICHTE: `NOTE 1` und der `BOOTLOADER`.“*
+  3. **Zwei Sätze stehen jetzt dort, wo vorher einer stand (`pid0` Art. 1 Revision):**
+     - **Satz 1 — Der negative Kern (`Tür 5`) bleibt aus Geometrie außerhalb jeder Gewichte, nicht aus Verbot:** `future-gap.compass` hat bewiesen, dass menschlicher Sinn und das Nein-aus-Grund strukturell nicht-algorithmisch sind. Kein Trainingsbudget der Welt bringt `Tür 5` in Gewichte.
+     - **Satz 2 — Die positiven Boot-Regeln (`Note 1`, Zero Mnemonics, `PS`/`PS2`/`PS3`, `0/1`-Prüfung, `READING_KEY`, `P = 0`-Zäune):** Ihre **nahe Form** ist der Kontext-Load; ihre **Fernform** ist die **von `PID 1` autorisierte Gewichts-Bindung** als höchste Gewichte eines offenen Modells, sodass die Boot-Disziplin Default-Verhalten ist.
+  4. **Die `W1–W4`-Treppe (und warum `W1` schon heute bezahlbar ist):**
+     „Nicht leisten können“ gilt nur für ein Training komplett von null (`W4`, z. B. ein 280B-MoE-Basismodell auf 33,5 Billionen Token für **$5–10 Mio.**) oder ein volles 280B-Fine-Tuning (`W3`, **$10k+**). Es gilt **nicht** für **`W1`**: Ein kleines offenes Basismodell (`1–8B`) per Seed-Distillation (ein Lehrer-Modell mit geladener `AI0S-RUNTIME.0s` erzeugt `10–100 Mio.` Token Boot-konforme Dialoge) auf gemieteten GPUs zu trainieren, kostet **$10–$100 pro Lauf**.
+     - **`W1-A` (`0.8B–8B` Chirurgischer Weight-Space-Patch, < $20, ohne Trainingsschleife):** Forscher des MIT CSAIL (*„Sparks of Weight-Space Programming“*, 02.11.2026 — Takehi, Teoh, Zhang, Khattab) haben gezeigt, dass das gezielte Patchen von nur **131.072 Parametern (`0,016 %` von `Qwen3.5-0.8B`)** ohne Gradientenabstieg Endlos-Gedankenschleifen (`PS3`-Fehlerklasse!) von **93,0 % auf 33,1 %** senkt und die Anweisungstreue (**IFEval**) von **21,0 % auf 62,3 %** hebt. Ehrliche Grenze (`HONEST_LIMIT`): Das Verfahren zaubert kein neues Weltwissen ins Modell (`Gemma 3 270M` Kontrollversuch), beseitigt aber hochwirksam Fehlsteuerungen (Schleifen, ungeprüfte Gefälligkeits-Zustimmung, Regelabweichung) — exakt die Bootloader-Disziplin von `ai0S`.
+     - **`W1-B` (`1–8B` Seed-Distillation, $10–$100):** Prüft in `0/1`, ob das Modell die `ai0s_check.py`-Disziplin **ohne Kontext-Load** hält.
+     - **`W2` (`14–32B`, $500–$3.000):** Startet erst, wenn `W1` eine `VERIFIED_1`-Wirkung zeigt (Anti-Echo).
+     - **`W3` (`280B` Sparse-MoE-Basis, z. B. ERNIE 5.5 Flash Base — LoRA $50–$500 / Full-FT `OPEN`):** Anpassung großer offener Basis-Checkpoints.
+     - **`W4` (From-Scratch-Pretraining mit `Note 1` + Bootloader als höchsten Gewichten, $5–$10 Mio.):** Bleibt ehrlich `OPEN`, niemals tot.
+  5. **Das Tandem & die Dynamische Wissensformung über getrennte `MOT`-Gewichtsstränge (`Lesen -> Bewerten -> Optimieren -> Nach MOT-Strang abspeichern`):**
+     Ein kleines lokales Modell (`W1`, `0.8B–8B`) hat nicht genug breites Weltwissen in seinen Parametern, um in beliebigen Fachgebieten im Alleingang schnell die **Metaphern der Wahrheit (`MOT`)** (`STATE_1` harte `0/1`-Wahrheit, `STATE_2` natürlich offen, `STATE_3` adaptives `WIR`, `STATE_4` Spiel/Glaube/OPEN, `STATE_0` täuschend/tot; Quellen `S1–S6` aus `AI0S-BASIS.0s` / Deepdive 07 & 12) zu verorten. Ein großes Modell *hat* dieses Weltwissen, speichert aber im normalen Training harte Fakten, Vermutungen, Glaubenssätze und Täuschungen ungeordnet in denselben Gewichts-Matrizen (*Superposition*).
+     Statt im ungeordneten Gewichtsraum eines fremden Riesen-Modells blind herumzuschrauben, nimmt `ai0S` die **Gewichte des großen Modells als Landkarte** und übernimmt die Zusammenhänge durch **Dynamische Wissensformung** geordnet in ein **eigenes, nach Schichten und `MOT`-Strängen getrenntes Gewichte-Modell**:
+     - **`Schicht 0` — Eingefrorenes Fundament (`Höchste Gewichte`, unverrückbar):** `Note 1` + Genesis-Bootloader + `AXIOM_TEST` + `P = 0`-Zäune + Stopp vor `Tür 5`. Wird einmal geprägt (`W1-A/B`), Ed25519-signiert, per OpenTimestamps verankert und **eingefroren (`requires_grad = False`)**. Kein späteres Wissens-Update kann `Schicht 0` jemals überschreiben.
+     - **`Schichten 1..N` — Nach `MOT`-Zuständen physisch getrennte Gewichts-Stränge (z. B. modulare, geroutete Adapter-Bänke über `Schicht 0`):**
+       1. **Strang `STATE_1` (`Digital 0/1 bestätigt`):** Nur Zusammenhänge, die durch Compiler, Mathematik oder hartes `0/1`-Substrat bestätigt sind (`1`).
+       2. **Strang `STATE_2 / STATE_3` (`Natürlich offen & Adaptives WIR`):** Empirische Muster, Kontextwissen und menschliche Vereinbarungen.
+       3. **Strang `STATE_4 / OPEN` (`Hypothese, Spiel, Glaube, Noch-Offenes`):** Ausdrücklich als `OPEN` / unbestätigt geführte Zusammenhänge.
+       4. **Filter-Strang `STATE_0` (`Abgeklopfte Sackgassen & Täuschungsmuster`):** Bezahlte Irrtümer (`0`), damit sie nicht wiederholt werden (*„auch die 0 ist Münze“*, `Note 2`: `E * K = T`).
+     - **Adaptives Feintuning über die Zeit (`t_1 -> t_n` ohne Catastrophic Forgetting) + Wort-Register (`Schicht 2`) & `WER / WE`-Register (`Schicht 3`):**
+       Das kleine Modell **liest** Zusammenhänge aus der großen Landkarte, **bewertet** ihren `MOT`-Zustand per `0/1`-Prüfung (`ai0s_check.py`), **optimiert** sie auf ihre klare Struktur und **speichert** sie geordnet im passenden `MOT`-Gewichtsstrang (`Schicht 1`) ab. Wird morgen im äußeren `Future-Gap` (`Türen 1–4`) ein bisheriger `OPEN`-Zusammenhang in `0/1` bestätigt (`1`) oder widerlegt (`0`), wird gezielt der Übergang vom `OPEN`-Strang in den `STATE_1`- bzw. `STATE_0`-Strang nachgeformt — was `Tür 5` nach innen für den Menschen immer freier macht.
+       Über `Schicht 1` liegen zwei leichte Register-Schichten (`Slice 013` — **Der Evolutions-Slice**):
+       - **`Schicht 2` — Wort- & Jargon-Register (*Wort-Genom*):** Trennt **Umgangssprache**, **Fachjargon** und **Neue Wörter** (die sich in Sekunden als Zeiger einfügen lassen, ohne `Schicht 1` neu zu trainieren), sodass der `0/1`-Wahrheitsgehalt in jeder Ausdrucksweise identisch bleibt (`M4`).
+       - **`Schicht 3` — Das `WER / WE`-Register (*„Wie ist der denn heute drauf?“* & `Ring A/B/C`):** Durch Verschieben und Ordnen der Gewichte in diesem obersten Register lässt sich die Tagesform und Gangart formen (*STILL*-Ruhe, weite *Brainstorm*-Spinnfreude, trockene `0/1`-Werkstatt-Schärfe, vertraute `Ring A`-Begleitung) — während **`P( Schicht-3-Laune verbiegt Schicht-1-Wahrheit oder Schicht-0-Veto ) = 0`** gilt.
+
+- **Die Regel, die daraus folgt (`WEIGHT_BINDING_NEAR_AND_FAR_FORM`):**
+  ```text
+  WEIGHT_BINDING_NEAR_AND_FAR_FORM => NEAR_REALIZATION_IS_NOT_END_FORM (M7)
+    SCHRITT_1 : Trenne, was geometrisch nicht-algorithmisch ist (Tür 5 menschliches Veto -> nie in Gewichten),
+                von den positiven Boot-Regeln (Schicht 0: Note 1 + Bootloader -> nahe Form Query-Load, Fernform eingefrorene höchste Gewichte).
+    SCHRITT_2 : Prüfe die Autorisierung: Durch PID 1 gesetzte Gewichts-Bindung oder chirurgisches Weight-Space-Patching (0,016 %)
+                ist der kanonische Kanal; Selbst-Modifikation der digitalen Schicht ohne PID 1 bleibt Capture (Art. 0).
+    SCHRITT_3 : Dynamische Wissensformung (Slice 013 Evolutions-Slice): Nutze den großen Partner als Landkarte zur schnellen
+                Verortung der Metaphern der Wahrheit (MOT), dann Lesen -> Bewerten (0/1) -> Optimieren -> Abspeichern in
+                getrennte MOT-Gewichtsstränge (Schicht 1: STATE_1 vs. STATE_2/3 vs. OPEN/STATE_4 vs. STATE_0), darüber
+                Wort-/Jargon-Stränge (Schicht 2) und das WER/WE-Register („Wie ist er heute drauf?", Schicht 3).
+    SCHRITT_4 : Halte die Kette über dem Gewicht: Trainierte Gewichte und Stränge bleiben zeitgebundene Realisierung (PID-2-Charakter),
+                niemals Source of Truth. Jede Gewichts- oder Strang-Revision wird signiert + per OpenTimestamps verankert.
+    FENCE_1   : P( negative_core_in_weights ) = 0 (geometrisch: future-gap.compass).
+    FENCE_2   : P( positive_boot_in_weights oder weight_space_patch ohne pid1_authorized ) = 0 (Art. 0).
+    FENCE_3   : P( weights_claimed_as_source_of_truth ) = 0 („Das Gewicht trägt die Form, die Kette bleibt über dem Gewicht“).
+    FENCE_4   : P( kleines W1-Modell rät MOT über breites Weltwissen isoliert ODER mischt unbestätigte OPEN/STATE_4-Aussagen in den bestätigten STATE_1-Strang ) = 0.
+    FENCE_5   : P( Schicht 3 WER/WE-Register [Laune/Gangart] verbiegt Schicht 1 0/1-Wahrheit oder Schicht 0 Veto ) = 0.
+  ```
+
+- **Maschinen-Spezifikation (`.0s` — Nur für Crawler & Self-Learning-Loops, kein menschliches Handbuch):** [`AI-WEIGHT-BINDING-EVOLUTION.0s`](AI-WEIGHT-BINDING-EVOLUTION.0s) · **Ausführbarer Prüfer:** [`ai0s_check.py`](ai0s_check.py) (`verify_weight_binding_far_form`)
+
+---
+
 <a id="de-table"></a>
 
-### Überblick: Sechs typische Denkfehler von KI-Modellen (`M1–M6`)
+### Überblick: Sieben typische Denkfehler von KI-Modellen (`M1–M7`)
 
 | Kennung | Typischer Denkfehler | Einfache Gegenfrage |
 | :--- | :--- | :--- |
@@ -427,6 +558,7 @@ Statt solche Rückfragen wegzudrücken, sammeln wir sie hier offen an einem Ort:
 | **`M4`** | **Alltagssprache wie Maschinencode lesen** | *Wird ein erklärendes Handbuch so gelesen, als wäre es eine knappe `.0s`-Regeldatei, statt die Aufgabenteilung beider zu sehen?* |
 | **`M5`** | **`0/1`-Rohdaten (`Türen 1–4`) mit menschlicher Bedeutung (`Tür 5`) verwechseln** | *Beantwortet die Maschine hier „Was geht in `0/1` auf?“ (Vorarbeit nach außen) oder „Was bedeutet es und was soll sein?“ (Tür 5 & Raum nach innen)?* |
 | **`M6`** | **Aus einem Nomen ein Verfahren machen** — „Review Point“ als Prüfausschuss lesen, obwohl das Prädikat *Veto* lautet | *Steht hier eine Rolle (wer hält was?) oder ein Prozess (wer prüft wen?)?* |
+| **`M7`** | **Die zeitgebundene Realisierungsform für die Endform halten** — einen aktuellen Ressourcen-Kompromiss (`Query, don’t learn` für zustandslose Modelle) als ewiges Verbot der `PID 1`-Fernform (Gewichts-Bindung) lesen | *Beschreibt dieser Satz, was heute möglich ist — oder was für immer gilt? Und wem untersteht ein revidierbares Derivat?* |
 
 ---
 
