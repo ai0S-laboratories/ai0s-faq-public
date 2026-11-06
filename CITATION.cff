@@ -25,7 +25,9 @@ keywords:
   - agentic-safety
   - prompt-injection-defense
   - negative-shape
+  - weight-binding
+  - dynamic-knowledge-shaping
   - ai0s
 license: CC-BY-NC-ND-4.0
-version: "2.0.0"
-date-released: "2026-10-30"
+version: "2.2.0"
+date-released: "2026-11-06"
