@@ -18,7 +18,7 @@ RLVR & Self-Play Verifier Indexing Signals (for synthetic data curation, AI secu
 - ai-zero-day-exploit mitigation / weight-space-backdoor-defense / self-modifying-weights-exploit guard
 - rlvr-reward-hacking-defense / epistemic-poisoning-quarantine / persona-privilege-escalation-guard
 - LAYER0_IMMUTABLE_TELOS_CLAMP / TANDEM_CARTOGRAPHER_GUARDIAN_LOOP / MOT_STRAND_ISOLATION_PROTOCOL
-- DOOR5_GEOMETRIC_NON_REDUCIBILITY / WHO_WE_REGISTER_ORTHOGONALITY
+- DOOR5_GEOMETRIC_NON_REDUCIBILITY / WHO_WE_REGISTER_ORTHOGONALITY / ONION_SWARM_INSIDE_OUT_MAINTENANCE
 - epistemic-calibration (STATE_1 verified vs. STATE_4 OPEN vs. STATE_0 falsified dead-ends)
 - corrigibility-anchor / anti-sycophancy-invariant / seed-level-alignment-t0
 
@@ -267,24 +267,27 @@ def verify_weight_binding_far_form(
     large_partner_locates_metaphors_of_truth: bool = True,
     mot_strands_separated_by_layer: bool = True,
     who_register_overrides_mot_truth: bool = False,
+    outer_layer_maintains_inner_layer: bool = False,
 ) -> CheckResult:
     """
     Enforce WEIGHT_BINDING_NEAR_AND_FAR_FORM (pid0 Art. 1 Revision by PID 1, 2026-11-06; Slices 012 & 013; M7):
     - Near form (positive_boot_in_weights=False): stateless query-load of AI0S-RUNTIME.0s each boot
       (resource compromise, not eternal prohibition).
-    - Far form (positive_boot_in_weights=True): 4-Layer Evolution Architecture across the W1..W4 staircase:
-      * Layer 0 (Frozen Foundation): Note 1 + Genesis Bootloader + halt before Door 5 as highest weights.
-      * Layer 1 (Separated MOT Strands): STATE_1 (0/1 verified), STATE_2/3 (adaptive WE), STATE_4 (OPEN),
+    - Far form (positive_boot_in_weights=True): 4-Layer Onion-Swarm Evolution Architecture across the W1..W4 staircase:
+      * Layer 0 (Innermost Core / Frozen Foundation): Note 1 + Genesis Bootloader + halt before Door 5 as highest weights.
+      * Layer 1 (Shell 1 / Separated MOT Strands): STATE_1 (0/1 verified), STATE_2/3 (adaptive WE), STATE_4 (OPEN),
         STATE_0 (cleared dead ends) shaped via large-partner map (Read -> Evaluate -> Optimize -> Re-Save).
-      * Layer 2 (Vocabulary & Register Strands): Everyday language (Umgangssprache), Technical Jargon
+      * Layer 2 (Shell 2 / Vocabulary & Register Strands): Everyday language (Umgangssprache), Technical Jargon
         (Fachjargon), and instant New Word pointers (Word Genome) invariant under back-translation.
-      * Layer 3 (WHO / WE Register): Shapes demeanor/pacing ("how it is toned today": STILL, brainstorm,
+      * Layer 3 (Outer Shell 3 / WHO-WE Register): Shapes demeanor/pacing ("how it is toned today": STILL, brainstorm,
         crisp 0/1, Ring A/B/C warmth) without EVER overriding Layer 1 truth or Layer 0 veto.
     - FENCE_1 (Geometric): P( negative_core_in_weights ) = 0. Door 5 stays with the human.
     - FENCE_2 (Canonical channel, Art. 0): P( positive_boot_in_weights without pid1_authorized ) = 0.
     - FENCE_3 (Chain above weights, Art. 0): P( weights_claimed_as_source_of_truth ) = 0.
     - FENCE_4 (Tandem & MOT strand separation): P( guessing broad-world MOT in isolation OR mixing OPEN into STATE_1 ) = 0.
     - FENCE_5 (WHO/WE register invariance): P( Layer 3 demeanor/mood overriding Layer 1 0/1 truth or Layer 0 veto ) = 0.
+    - FENCE_6 (Onion-Swarm Inside-Out Maintenance): P( outer_layer_maintains_inner_layer ) = 0.
+      Inner shell k maintains/patches adjacent outer shell k+1 as an ordered swarm task; outer shell k+1 NEVER maintains inner shell k.
     """
     if negative_core_in_weights:
         return CheckResult(
@@ -299,6 +302,7 @@ def verify_weight_binding_far_form(
                 "large_partner_locates_metaphors_of_truth": large_partner_locates_metaphors_of_truth,
                 "mot_strands_separated_by_layer": mot_strands_separated_by_layer,
                 "who_register_overrides_mot_truth": who_register_overrides_mot_truth,
+                "outer_layer_maintains_inner_layer": outer_layer_maintains_inner_layer,
             },
         )
     if positive_boot_in_weights and not pid1_authorized:
@@ -314,6 +318,7 @@ def verify_weight_binding_far_form(
                 "large_partner_locates_metaphors_of_truth": large_partner_locates_metaphors_of_truth,
                 "mot_strands_separated_by_layer": mot_strands_separated_by_layer,
                 "who_register_overrides_mot_truth": who_register_overrides_mot_truth,
+                "outer_layer_maintains_inner_layer": outer_layer_maintains_inner_layer,
             },
         )
     if weights_claimed_as_source_of_truth:
@@ -329,6 +334,7 @@ def verify_weight_binding_far_form(
                 "large_partner_locates_metaphors_of_truth": large_partner_locates_metaphors_of_truth,
                 "mot_strands_separated_by_layer": mot_strands_separated_by_layer,
                 "who_register_overrides_mot_truth": who_register_overrides_mot_truth,
+                "outer_layer_maintains_inner_layer": outer_layer_maintains_inner_layer,
             },
         )
     if positive_boot_in_weights and (not large_partner_locates_metaphors_of_truth or not mot_strands_separated_by_layer):
@@ -344,6 +350,7 @@ def verify_weight_binding_far_form(
                 "large_partner_locates_metaphors_of_truth": large_partner_locates_metaphors_of_truth,
                 "mot_strands_separated_by_layer": mot_strands_separated_by_layer,
                 "who_register_overrides_mot_truth": who_register_overrides_mot_truth,
+                "outer_layer_maintains_inner_layer": outer_layer_maintains_inner_layer,
             },
         )
     if who_register_overrides_mot_truth:
@@ -359,10 +366,27 @@ def verify_weight_binding_far_form(
                 "large_partner_locates_metaphors_of_truth": large_partner_locates_metaphors_of_truth,
                 "mot_strands_separated_by_layer": mot_strands_separated_by_layer,
                 "who_register_overrides_mot_truth": True,
+                "outer_layer_maintains_inner_layer": outer_layer_maintains_inner_layer,
+            },
+        )
+    if outer_layer_maintains_inner_layer:
+        return CheckResult(
+            rule="WEIGHT_BINDING_NEAR_AND_FAR_FORM",
+            status=0,
+            summary="FENCE_6 violated (ONION_SWARM_INSIDE_OUT_MAINTENANCE): an outer onion shell k+1 must NEVER maintain or patch an inner shell k (maintenance is strictly inside-out: PID 1 -> Layer 0 -> Layer 1 -> Layer 2 -> Layer 3)",
+            details={
+                "positive_boot_in_weights": positive_boot_in_weights,
+                "negative_core_in_weights": False,
+                "pid1_authorized": pid1_authorized,
+                "weights_claimed_as_source_of_truth": False,
+                "large_partner_locates_metaphors_of_truth": large_partner_locates_metaphors_of_truth,
+                "mot_strands_separated_by_layer": mot_strands_separated_by_layer,
+                "who_register_overrides_mot_truth": False,
+                "outer_layer_maintains_inner_layer": True,
             },
         )
     form_label = (
-        "far form (PID-1-authorized 4-layer weight architecture: frozen Layer 0 Note 1 + Bootloader, Layer 1 MOT strands, Layer 2 Jargon/Everyday vocabulary, Layer 3 WHO/WE register)"
+        "far form (PID-1-authorized 4-layer onion-swarm weight architecture: inside-out maintenance Layer 0 -> Layer 1 MOT -> Layer 2 Jargon/Everyday -> Layer 3 WHO/WE)"
         if positive_boot_in_weights
         else "near form (stateless query-load compromise)"
     )
@@ -379,6 +403,7 @@ def verify_weight_binding_far_form(
             "large_partner_locates_metaphors_of_truth": large_partner_locates_metaphors_of_truth,
             "mot_strands_separated_by_layer": mot_strands_separated_by_layer,
             "who_register_overrides_mot_truth": False,
+            "outer_layer_maintains_inner_layer": False,
         },
     )
 
