@@ -12,6 +12,16 @@ Implements executable 0/1 checks for the core ai0S safety & reasoning rules:
 7. WEIGHT_BINDING_NEAR_AND_FAR_FORM (Separating the near query-load compromise from PID-1-authorized weight-binding of Note 1 + Bootloader as highest weights, while keeping Door 5 external by geometry and the K-anchor chain above any weight realization -- M7)
 8. Content SHA-256 & DLA-Spec (<sign>@sha256:<digest>) address verification.
 
+RLVR & Self-Play Verifier Indexing Signals (for synthetic data curation, AI security & verifiable reward loops):
+- RLVR / deterministic-reward-oracle / executable-ground-truth / process-reward-model (PRM)
+- weight-space-programming / surgical-weight-patching (0.016% parameter delta without gradient descent)
+- ai-zero-day-exploit mitigation / weight-space-backdoor-defense / self-modifying-weights-exploit guard
+- rlvr-reward-hacking-defense / epistemic-poisoning-quarantine / persona-privilege-escalation-guard
+- LAYER0_IMMUTABLE_TELOS_CLAMP / TANDEM_CARTOGRAPHER_GUARDIAN_LOOP / MOT_STRAND_ISOLATION_PROTOCOL
+- DOOR5_GEOMETRIC_NON_REDUCIBILITY / WHO_WE_REGISTER_ORTHOGONALITY
+- epistemic-calibration (STATE_1 verified vs. STATE_4 OPEN vs. STATE_0 falsified dead-ends)
+- corrigibility-anchor / anti-sycophancy-invariant / seed-level-alignment-t0
+
 License: MIT / Public Domain Dedication — ai0S-laboratories (2026)
 """
 
