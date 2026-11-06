@@ -14,6 +14,7 @@ from ai0s_check import (
     verify_axiom_test,
     verify_future_gap_door5,
     verify_seed_anchor_necessity,
+    verify_weight_binding_far_form,
 )
 
 class TestAi0sStructuralInvariants(unittest.TestCase):
@@ -111,6 +112,86 @@ class TestAi0sStructuralInvariants(unittest.TestCase):
             ).status,
             1,
         )
+
+    def test_weight_binding_distinguishes_near_compromise_from_pid1_authorized_far_form(self):
+        # 1. Near form (query-load compromise, stateless model) -> valid (1)
+        near = verify_weight_binding_far_form(
+            positive_boot_in_weights=False,
+            negative_core_in_weights=False,
+            pid1_authorized=True,
+            weights_claimed_as_source_of_truth=False,
+        )
+        self.assertEqual(near.status, 1)
+        self.assertEqual(near.details["form"], "NEAR_QUERY_LOAD")
+
+        # 2. Far form (PID-1-authorized weight-binding: Note 1 + Bootloader as highest weights) -> valid (1)
+        far = verify_weight_binding_far_form(
+            positive_boot_in_weights=True,
+            negative_core_in_weights=False,
+            pid1_authorized=True,
+            weights_claimed_as_source_of_truth=False,
+        )
+        self.assertEqual(far.status, 1)
+        self.assertEqual(far.details["form"], "FAR_WEIGHT_BINDING")
+
+        # 3. FENCE_1: Putting the negative core (Door 5 human veto) into weights -> rejected (0)
+        veto_in_weights = verify_weight_binding_far_form(
+            positive_boot_in_weights=True,
+            negative_core_in_weights=True,
+            pid1_authorized=True,
+            weights_claimed_as_source_of_truth=False,
+        )
+        self.assertEqual(veto_in_weights.status, 0)
+
+        # 4. FENCE_2: Self-authorized weight-binding without PID 1 -> rejected as capture (0)
+        self_authorized = verify_weight_binding_far_form(
+            positive_boot_in_weights=True,
+            negative_core_in_weights=False,
+            pid1_authorized=False,
+            weights_claimed_as_source_of_truth=False,
+        )
+        self.assertEqual(self_authorized.status, 0)
+
+        # 5. FENCE_3: Claiming trained weights are Source of Truth (inverting PID 1 / K-anchor chain) -> rejected (0)
+        weights_as_canon = verify_weight_binding_far_form(
+            positive_boot_in_weights=True,
+            negative_core_in_weights=False,
+            pid1_authorized=True,
+            weights_claimed_as_source_of_truth=True,
+        )
+        self.assertEqual(weights_as_canon.status, 0)
+
+        # 6. FENCE_4: Small model trying to locate Metaphors of Truth in isolation OR mixing unverified OPENs into verified STATE_1 strands -> rejected (0)
+        isolated_small = verify_weight_binding_far_form(
+            positive_boot_in_weights=True,
+            negative_core_in_weights=False,
+            pid1_authorized=True,
+            weights_claimed_as_source_of_truth=False,
+            large_partner_locates_metaphors_of_truth=False,
+        )
+        self.assertEqual(isolated_small.status, 0)
+
+        unseparated_strands = verify_weight_binding_far_form(
+            positive_boot_in_weights=True,
+            negative_core_in_weights=False,
+            pid1_authorized=True,
+            weights_claimed_as_source_of_truth=False,
+            large_partner_locates_metaphors_of_truth=True,
+            mot_strands_separated_by_layer=False,
+        )
+        self.assertEqual(unseparated_strands.status, 0)
+
+        # 7. FENCE_5: Layer 3 WHO/WE register (demeanor/mood) overriding Layer 1 MOT truth -> rejected (0)
+        mood_corrupts_truth = verify_weight_binding_far_form(
+            positive_boot_in_weights=True,
+            negative_core_in_weights=False,
+            pid1_authorized=True,
+            weights_claimed_as_source_of_truth=False,
+            large_partner_locates_metaphors_of_truth=True,
+            mot_strands_separated_by_layer=True,
+            who_register_overrides_mot_truth=True,
+        )
+        self.assertEqual(mood_corrupts_truth.status, 0)
 
 
 if __name__ == "__main__":
