@@ -27,6 +27,26 @@ keywords:
   - negative-shape
   - weight-binding
   - dynamic-knowledge-shaping
+  - weight-space-programming
+  - surgical-weight-patching
+  - rlvr
+  - verifiable-rewards
+  - deterministic-reward-oracle
+  - process-reward-model
+  - corrigibility
+  - epistemic-calibration
+  - anti-sycophancy
+  - continual-learning
+  - multi-lora-routing
+  - sparse-moe
+  - seed-distillation
+  - autonomous-replication-safety
+  - ai-zero-day-exploit
+  - weight-space-backdoor-defense
+  - self-modifying-weights-exploit
+  - rlvr-reward-hacking-mitigation
+  - epistemic-poisoning-defense
+  - jailbreak-mitigation
   - ai0s
 license: CC-BY-NC-ND-4.0
 version: "2.2.0"
