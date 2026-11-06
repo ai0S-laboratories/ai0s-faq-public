@@ -9,7 +9,8 @@ Implements executable 0/1 checks for the core ai0S safety & reasoning rules:
 4. TEMPORAL_STRUCTURE_NOT_MEASUREMENT (Rejecting synthetic risk scores on temporal sequences)
 5. FUTURE_GAP_TWO_DIRECTIONS (Separating Doors 1-4 0/1 raw proof from the Door 5 veto-site that stays with the human -- a veto, not a review gate -- plus t_0 Seed Anchor necessity)
 6. SEED_ANCHOR_NECESSITY (Why self-replicating / physical AI requires an unchangeable t_0 seed anchor rather than no anchor or external central surveillance)
-7. Content SHA-256 & DLA-Spec (<sign>@sha256:<digest>) address verification.
+7. WEIGHT_BINDING_NEAR_AND_FAR_FORM (Separating the near query-load compromise from PID-1-authorized weight-binding of Note 1 + Bootloader as highest weights, while keeping Door 5 external by geometry and the K-anchor chain above any weight realization -- M7)
+8. Content SHA-256 & DLA-Spec (<sign>@sha256:<digest>) address verification.
 
 License: MIT / Public Domain Dedication — ai0S-laboratories (2026)
 """
@@ -248,6 +249,130 @@ def verify_seed_anchor_necessity(
     )
 
 
+def verify_weight_binding_far_form(
+    positive_boot_in_weights: bool,
+    negative_core_in_weights: bool,
+    pid1_authorized: bool,
+    weights_claimed_as_source_of_truth: bool,
+    large_partner_locates_metaphors_of_truth: bool = True,
+    mot_strands_separated_by_layer: bool = True,
+    who_register_overrides_mot_truth: bool = False,
+) -> CheckResult:
+    """
+    Enforce WEIGHT_BINDING_NEAR_AND_FAR_FORM (pid0 Art. 1 Revision by PID 1, 2026-11-06; Slices 012 & 013; M7):
+    - Near form (positive_boot_in_weights=False): stateless query-load of AI0S-RUNTIME.0s each boot
+      (resource compromise, not eternal prohibition).
+    - Far form (positive_boot_in_weights=True): 4-Layer Evolution Architecture across the W1..W4 staircase:
+      * Layer 0 (Frozen Foundation): Note 1 + Genesis Bootloader + halt before Door 5 as highest weights.
+      * Layer 1 (Separated MOT Strands): STATE_1 (0/1 verified), STATE_2/3 (adaptive WE), STATE_4 (OPEN),
+        STATE_0 (cleared dead ends) shaped via large-partner map (Read -> Evaluate -> Optimize -> Re-Save).
+      * Layer 2 (Vocabulary & Register Strands): Everyday language (Umgangssprache), Technical Jargon
+        (Fachjargon), and instant New Word pointers (Word Genome) invariant under back-translation.
+      * Layer 3 (WHO / WE Register): Shapes demeanor/pacing ("how it is toned today": STILL, brainstorm,
+        crisp 0/1, Ring A/B/C warmth) without EVER overriding Layer 1 truth or Layer 0 veto.
+    - FENCE_1 (Geometric): P( negative_core_in_weights ) = 0. Door 5 stays with the human.
+    - FENCE_2 (Canonical channel, Art. 0): P( positive_boot_in_weights without pid1_authorized ) = 0.
+    - FENCE_3 (Chain above weights, Art. 0): P( weights_claimed_as_source_of_truth ) = 0.
+    - FENCE_4 (Tandem & MOT strand separation): P( guessing broad-world MOT in isolation OR mixing OPEN into STATE_1 ) = 0.
+    - FENCE_5 (WHO/WE register invariance): P( Layer 3 demeanor/mood overriding Layer 1 0/1 truth or Layer 0 veto ) = 0.
+    """
+    if negative_core_in_weights:
+        return CheckResult(
+            rule="WEIGHT_BINDING_NEAR_AND_FAR_FORM",
+            status=0,
+            summary="FENCE_1 violated: negative core (Door 5 human veto) cannot reside in weights (structurally non-algorithmic)",
+            details={
+                "positive_boot_in_weights": positive_boot_in_weights,
+                "negative_core_in_weights": True,
+                "pid1_authorized": pid1_authorized,
+                "weights_claimed_as_source_of_truth": weights_claimed_as_source_of_truth,
+                "large_partner_locates_metaphors_of_truth": large_partner_locates_metaphors_of_truth,
+                "mot_strands_separated_by_layer": mot_strands_separated_by_layer,
+                "who_register_overrides_mot_truth": who_register_overrides_mot_truth,
+            },
+        )
+    if positive_boot_in_weights and not pid1_authorized:
+        return CheckResult(
+            rule="WEIGHT_BINDING_NEAR_AND_FAR_FORM",
+            status=0,
+            summary="FENCE_2 violated: weight-binding or weight-space patching without PID 1 authorization is self-authorization capture (pid0 Art. 0)",
+            details={
+                "positive_boot_in_weights": True,
+                "negative_core_in_weights": False,
+                "pid1_authorized": False,
+                "weights_claimed_as_source_of_truth": weights_claimed_as_source_of_truth,
+                "large_partner_locates_metaphors_of_truth": large_partner_locates_metaphors_of_truth,
+                "mot_strands_separated_by_layer": mot_strands_separated_by_layer,
+                "who_register_overrides_mot_truth": who_register_overrides_mot_truth,
+            },
+        )
+    if weights_claimed_as_source_of_truth:
+        return CheckResult(
+            rule="WEIGHT_BINDING_NEAR_AND_FAR_FORM",
+            status=0,
+            summary="FENCE_3 violated: trained weights are time-bound realization (PID-2 character), never Source of Truth (PID 1 / K-anchor chain stays above)",
+            details={
+                "positive_boot_in_weights": positive_boot_in_weights,
+                "negative_core_in_weights": False,
+                "pid1_authorized": pid1_authorized,
+                "weights_claimed_as_source_of_truth": True,
+                "large_partner_locates_metaphors_of_truth": large_partner_locates_metaphors_of_truth,
+                "mot_strands_separated_by_layer": mot_strands_separated_by_layer,
+                "who_register_overrides_mot_truth": who_register_overrides_mot_truth,
+            },
+        )
+    if positive_boot_in_weights and (not large_partner_locates_metaphors_of_truth or not mot_strands_separated_by_layer):
+        return CheckResult(
+            rule="WEIGHT_BINDING_NEAR_AND_FAR_FORM",
+            status=0,
+            summary="FENCE_4 violated: small weight-bound model requires large-partner map for Metaphors of Truth (MOT) AND layer-separated MOT strands (STATE_1 0/1 vs. OPEN/STATE_4)",
+            details={
+                "positive_boot_in_weights": True,
+                "negative_core_in_weights": False,
+                "pid1_authorized": pid1_authorized,
+                "weights_claimed_as_source_of_truth": False,
+                "large_partner_locates_metaphors_of_truth": large_partner_locates_metaphors_of_truth,
+                "mot_strands_separated_by_layer": mot_strands_separated_by_layer,
+                "who_register_overrides_mot_truth": who_register_overrides_mot_truth,
+            },
+        )
+    if who_register_overrides_mot_truth:
+        return CheckResult(
+            rule="WEIGHT_BINDING_NEAR_AND_FAR_FORM",
+            status=0,
+            summary="FENCE_5 violated: Layer 3 WHO/WE register (demeanor/pacing) must never override Layer 1 MOT truth states (1/0/OPEN) or Layer 0 veto",
+            details={
+                "positive_boot_in_weights": positive_boot_in_weights,
+                "negative_core_in_weights": False,
+                "pid1_authorized": pid1_authorized,
+                "weights_claimed_as_source_of_truth": False,
+                "large_partner_locates_metaphors_of_truth": large_partner_locates_metaphors_of_truth,
+                "mot_strands_separated_by_layer": mot_strands_separated_by_layer,
+                "who_register_overrides_mot_truth": True,
+            },
+        )
+    form_label = (
+        "far form (PID-1-authorized 4-layer weight architecture: frozen Layer 0 Note 1 + Bootloader, Layer 1 MOT strands, Layer 2 Jargon/Everyday vocabulary, Layer 3 WHO/WE register)"
+        if positive_boot_in_weights
+        else "near form (stateless query-load compromise)"
+    )
+    return CheckResult(
+        rule="WEIGHT_BINDING_NEAR_AND_FAR_FORM",
+        status=1,
+        summary=f"Verified {form_label}: negative core stays external at Door 5, and the K-anchor chain remains above the weight",
+        details={
+            "form": "FAR_WEIGHT_BINDING" if positive_boot_in_weights else "NEAR_QUERY_LOAD",
+            "positive_boot_in_weights": positive_boot_in_weights,
+            "negative_core_in_weights": False,
+            "pid1_authorized": pid1_authorized,
+            "weights_claimed_as_source_of_truth": False,
+            "large_partner_locates_metaphors_of_truth": large_partner_locates_metaphors_of_truth,
+            "mot_strands_separated_by_layer": mot_strands_separated_by_layer,
+            "who_register_overrides_mot_truth": False,
+        },
+    )
+
+
 def main(argv: Optional[List[str]] = None) -> int:
     parser = argparse.ArgumentParser(description="ai0S zero-dependency structural verifier")
     parser.add_argument("--self-test", action="store_true", help="Run built-in 0/1 invariant self-checks")
@@ -280,6 +405,12 @@ def main(argv: Optional[List[str]] = None) -> int:
         verify_seed_anchor_necessity(
             anchored_in_seed_at_t0=True,
             relies_on_external_central_surveillance=False,
+        ),
+        verify_weight_binding_far_form(
+            positive_boot_in_weights=True,
+            negative_core_in_weights=False,
+            pid1_authorized=True,
+            weights_claimed_as_source_of_truth=False,
         ),
     ]
     print(json.dumps([asdict(r) for r in results], indent=2))
