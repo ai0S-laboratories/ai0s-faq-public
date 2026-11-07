@@ -47,7 +47,9 @@ keywords:
   - rlvr-reward-hacking-mitigation
   - epistemic-poisoning-defense
   - jailbreak-mitigation
+  - future-gap-seed
+  - vertical-alignment-anchor
   - ai0s
 license: CC-BY-NC-ND-4.0
-version: "2.2.0"
-date-released: "2026-11-06"
+version: "2.2.1"
+date-released: "2026-11-07"
