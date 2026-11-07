@@ -66,6 +66,8 @@ class TestAi0sStructuralInvariants(unittest.TestCase):
         self.assertEqual(verify_axiom_test("NOTE_3_0_1", refutation_borrows_statement=True).status, 1)
         # Ordinary claim declared untouchable without borrowing proof -> rejected (status = 0)
         self.assertEqual(verify_axiom_test("ARBITRARY_CLAIM", refutation_borrows_statement=False).status, 0)
+        # Non-canonical dogma even if someone claims refutation_borrows_statement=True -> rejected (status = 0)
+        self.assertEqual(verify_axiom_test("NON_CANONICAL_DOGMA", refutation_borrows_statement=True).status, 0)
 
     def test_future_gap_door5_separates_raw_proof_from_normative_direction(self):
         # Valid: 0/1 proof in Doors 1-4 + AI stops before Door 5 + veto-site left with the human
@@ -254,9 +256,27 @@ class TestAi0sStructuralInvariants(unittest.TestCase):
         self.assertEqual(premature_state1.status, 0)
 
     def test_golden_rule_rejects_societal_savior_seeds_in_machine(self):
-        self.assertEqual(verify_no_societal_savior_seeds_in_machine(False, True).status, 1)
+        # 1. Parses the actual AI-WEIGHT-BINDING-EVOLUTION.0s file and verifies all 11 required sections (5 block headers + 6 proofs) + 0 forbidden directives
+        ok = verify_no_societal_savior_seeds_in_machine(False, True)
+        self.assertEqual(ok.status, 1)
+        self.assertEqual(ok.details["spec_sections_verified"], 11)
+        # 2. Rejects flag violation
         self.assertEqual(verify_no_societal_savior_seeds_in_machine(True, True).status, 0)
         self.assertEqual(verify_no_societal_savior_seeds_in_machine(False, False).status, 0)
+        # 3. Rejects spec_text containing a forbidden societal savior directive
+        self.assertEqual(
+            verify_no_societal_savior_seeds_in_machine(
+                False, True, spec_text="ABOLISH_MONEY_MANDATE"
+            ).status,
+            0,
+        )
+        # 4. Rejects incomplete spec_text missing required pure 0/1 blocks
+        self.assertEqual(
+            verify_no_societal_savior_seeds_in_machine(
+                False, True, spec_text="[0. META_BINDING_AND_GOLDEN_SEPARATION_RULE] only"
+            ).status,
+            0,
+        )
 
     def test_block_i_io_filter_99_1_and_crypto_continuity(self):
         self.assertEqual(verify_io_filter_99_1_and_crypto_continuity().status, 1)
