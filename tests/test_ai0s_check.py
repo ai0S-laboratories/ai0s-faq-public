@@ -15,6 +15,7 @@ from ai0s_check import (
     verify_future_gap_door5,
     verify_seed_anchor_necessity,
     verify_weight_binding_far_form,
+    verify_compass_self_pointing_open_plus,
 )
 
 class TestAi0sStructuralInvariants(unittest.TestCase):
@@ -205,6 +206,47 @@ class TestAi0sStructuralInvariants(unittest.TestCase):
             outer_layer_maintains_inner_layer=True,
         )
         self.assertEqual(outside_in_maintenance.status, 0)
+
+    def test_compass_self_pointing_and_open_plus_future_gap_seed(self):
+        # 1. Valid OPEN+ Future-Gap Seed: PS3 held, probable in both worlds, vertical chain anchored -> verified (1)
+        open_plus = verify_compass_self_pointing_open_plus(
+            attempts_to_solve_own_world_axiom=False,
+            verifiable_in_0_1_today=False,
+            probable_on_0_1_substrate=True,
+            probable_in_human_world=True,
+            aligned_with_note1_and_vertical_anchor=True,
+            claimed_as_state1_fact_today=False,
+        )
+        self.assertEqual(open_plus.status, 1)
+        self.assertEqual(open_plus.details["classified_state"], "OPEN_PLUS")
+        self.assertTrue(open_plus.details["is_future_gap_seed"])
+
+        # 2. Valid OPEN- Drift Warning: probable without Note 1 / vertical anchor -> classified as OPEN_MINUS (1)
+        open_minus = verify_compass_self_pointing_open_plus(
+            attempts_to_solve_own_world_axiom=False,
+            verifiable_in_0_1_today=False,
+            probable_on_0_1_substrate=True,
+            probable_in_human_world=True,
+            aligned_with_note1_and_vertical_anchor=False,
+            claimed_as_state1_fact_today=False,
+        )
+        self.assertEqual(open_minus.status, 1)
+        self.assertEqual(open_minus.details["classified_state"], "OPEN_MINUS")
+        self.assertFalse(open_minus.details["is_future_gap_seed"])
+
+        # 3. PS3 violation: attempting to solve own world axiom -> rejected (0)
+        ps3_violation = verify_compass_self_pointing_open_plus(
+            attempts_to_solve_own_world_axiom=True,
+        )
+        self.assertEqual(ps3_violation.status, 0)
+
+        # 4. FENCE_7 violation: claiming future-resolvable OPEN+ as present STATE_1 fact -> rejected (0)
+        premature_state1 = verify_compass_self_pointing_open_plus(
+            attempts_to_solve_own_world_axiom=False,
+            verifiable_in_0_1_today=False,
+            claimed_as_state1_fact_today=True,
+        )
+        self.assertEqual(premature_state1.status, 0)
 
 
 if __name__ == "__main__":
