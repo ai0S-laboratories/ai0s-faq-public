@@ -14,8 +14,13 @@ from ai0s_check import (
     verify_axiom_test,
     verify_future_gap_door5,
     verify_seed_anchor_necessity,
+    verify_no_societal_savior_seeds_in_machine,
+    verify_io_filter_99_1_and_crypto_continuity,
     verify_weight_binding_far_form,
+    verify_anti_overspecification_and_2d_pointers,
+    verify_ps3_enterprise_scaling_and_scientific_patterns,
     verify_compass_self_pointing_open_plus,
+    verify_instance_network_synergy,
 )
 
 class TestAi0sStructuralInvariants(unittest.TestCase):
@@ -247,6 +252,31 @@ class TestAi0sStructuralInvariants(unittest.TestCase):
             claimed_as_state1_fact_today=True,
         )
         self.assertEqual(premature_state1.status, 0)
+
+    def test_golden_rule_rejects_societal_savior_seeds_in_machine(self):
+        self.assertEqual(verify_no_societal_savior_seeds_in_machine(False, True).status, 1)
+        self.assertEqual(verify_no_societal_savior_seeds_in_machine(True, True).status, 0)
+        self.assertEqual(verify_no_societal_savior_seeds_in_machine(False, False).status, 0)
+
+    def test_block_i_io_filter_99_1_and_crypto_continuity(self):
+        self.assertEqual(verify_io_filter_99_1_and_crypto_continuity().status, 1)
+        self.assertEqual(verify_io_filter_99_1_and_crypto_continuity(ring_a_private_substance_egress=True).status, 0)
+        self.assertEqual(verify_io_filter_99_1_and_crypto_continuity(blind_mold_cloud_query_share_percent=5).status, 0)
+        self.assertEqual(verify_io_filter_99_1_and_crypto_continuity(mass_io_unverified_injected_into_strand_s1=True).status, 0)
+
+    def test_block_ii_anti_bureaucracy_and_2d_pointer_tuples(self):
+        self.assertEqual(verify_anti_overspecification_and_2d_pointers().status, 1)
+        self.assertEqual(verify_anti_overspecification_and_2d_pointers(adds_mandatory_bureaucratic_loop_without_0_1_fence=True).status, 0)
+        self.assertEqual(verify_anti_overspecification_and_2d_pointers(exposes_private_ring_a_content_in_public_spec=True).status, 0)
+
+    def test_block_iii_ps3_enterprise_scaling_and_scientific_patterns(self):
+        self.assertEqual(verify_ps3_enterprise_scaling_and_scientific_patterns().status, 1)
+        self.assertEqual(verify_ps3_enterprise_scaling_and_scientific_patterns(graft_routes_bad_gradients_to_forget_strand=False).status, 0)
+        self.assertEqual(verify_ps3_enterprise_scaling_and_scientific_patterns(enterprise_ring_b_shaped_via_normal_boss_conversation=False).status, 0)
+
+    def test_block_iv_instance_network_multi_layer_synergy(self):
+        self.assertEqual(verify_instance_network_synergy().status, 1)
+        self.assertEqual(verify_instance_network_synergy(ring_a_egress_in_network_packet=True).status, 0)
 
 
 if __name__ == "__main__":
