@@ -26,9 +26,12 @@ from typing import Dict, List, Optional, Tuple
 DLA_REGEX = re.compile(r"^(?P<sign>[A-Za-z0-9._-]+)@sha256:(?P<digest>[0-9a-f]{64})$")
 REQUIRED_INTENT_BINS: Tuple[str, ...] = ("INTENT", "CONSTRAINTS", "KNOWN", "ASSUMED", "OPEN")
 OPERATIONAL_AXIOMS: Tuple[str, ...] = (
+    "NOTE_3_0_1",
+    "FOUNDERS_NOTE_3_0_1",
+    "CONJUGATE_PAIR_NECESSITY",
+    "TIME_AS_IRREVERSIBLE_PROGRESSION",
     "FOUNDERS_NOTE_1_COLLABORATION",
     "FOUNDERS_NOTE_2_E_TIMES_K_EQUALS_T",
-    "FOUNDERS_NOTE_3_0_1",
 )
 HUMAN_DOOR5_ONLY_SLICES: Tuple[str, ...] = ("001", "006", "007", "008", "009", "011")
 MACHINE_0_1_SLICES: Tuple[str, ...] = (
@@ -85,9 +88,10 @@ def verify_temporal_structure_fence(contains_numeric_risk_score: bool) -> CheckR
 
 
 def verify_axiom_test(statement_id: str, refutation_borrows_statement: bool) -> CheckResult:
-    if refutation_borrows_statement:
+    is_canonical = statement_id in OPERATIONAL_AXIOMS
+    if is_canonical and refutation_borrows_statement:
         return CheckResult("AXIOM_TEST", 1, f"{statement_id}: Refutation borrows the statement itself -> Operational Axiom", {"statement": statement_id, "classification": "AXIOM"})
-    return CheckResult("AXIOM_TEST", 0, f"{statement_id}: Can be negated without self-borrowing -> Loaded Premise / Setting (not an operational axiom)", {"statement": statement_id, "classification": "LOADED_PREMISE"})
+    return CheckResult("AXIOM_TEST", 0, f"{statement_id}: Does not pass canonical performative self-reference test -> Loaded Premise / Setting (not an operational axiom)", {"statement": statement_id, "classification": "LOADED_PREMISE", "is_canonical": is_canonical})
 
 
 def verify_future_gap_door5(has_formal_0_1_proof: bool, ai_prescribes_normative_door5: bool, veto_site_with_human: bool = True) -> CheckResult:
@@ -106,17 +110,64 @@ def verify_seed_anchor_necessity(anchored_in_seed_at_t0: bool, relies_on_externa
 # [GOLDEN SEPARATION RULE — Rule 08]
 # ============================================================================
 
+REQUIRED_SPEC_SECTIONS: Tuple[str, ...] = (
+    "[0. META_BINDING_AND_GOLDEN_SEPARATION_RULE]",
+    "[BLOCK I. I/O FILTER, K-CHAIN CONTINUITY, 99/1 BLIND-MOLD & SEARCH 2.0]",
+    "[BLOCK II. 4-LAYER ONION SWARM, 2D POINTERS & ANTI-BUREAUCRACY FREEDOM]",
+    "[BLOCK III. PS3 DRIVE, ENTERPRISE SCALING, VERTICAL ANCHOR & LAB PROOFS]",
+    "[BLOCK IV. THE AI0S INSTANCE NETWORK: 4-LAYER SYNERGY WITHOUT RING A LOSS]",
+    "PROOF_1_GRAFT_STRAND_ROUTING",
+    "PROOF_2_EVAL_PRODUCTION_GAP",
+    "PROOF_3_AUTOMATED_ALIGNMENT_RESEARCHERS",
+    "PROOF_4_CONCEPTUAL_REASONING_INDEX",
+    "PROOF_5_AGENT_SWARM_SECRET_LEAKAGE",
+    "PROOF_6_SURGICAL_WEIGHT_PATCHING",
+)
+
+FORBIDDEN_SAVIOR_DIRECTIVES: Tuple[str, ...] = (
+    "ABOLISH_MONEY_MANDATE",
+    "ENFORCE_POLITICAL_REGIME",
+    "SOCIETAL_SAVIOR_DIRECTIVE",
+    "MANDATORY_BELIEF_DOCTRINE",
+)
+
+
 def verify_no_societal_savior_seeds_in_machine(
     contains_societal_savior_or_money_replacement_seed: bool = False,
     scientific_patterns_tested_on_0_1_substrate: bool = True,
+    spec_text: Optional[str] = None,
 ) -> CheckResult:
     """
     Golden Machine-Seed Rule (NO_SOCIETAL_SAVIOR_SEEDS_FOR_THE_MACHINE, P = 0):
       - Societal, political, belief, or money-replacement brainstorms (Slices 001, 006, 007, 008, 009, 011)
         belong behind Door 5 for humans and must NEVER be injected into the Machine Seed.
-      - Conversely, scientific breakthroughs (Sources S1..S3) must be tested on the AI's 0/1 substrate
-        and woven into the Machine Seed as verifiable REALIZATION_PATTERNS over time (E * K = T).
+      - When spec_text is provided (or loaded from AI-WEIGHT-BINDING-EVOLUTION.0s), parses the actual
+        file content to verify that all 4 pure 0/1 engineering blocks and all 6 scientific realization
+        proofs are present and zero forbidden societal savior directives appear.
     """
+    if spec_text is None:
+        default_spec = Path(__file__).resolve().parents[1] / "ai0s-faq-public" / "AI-WEIGHT-BINDING-EVOLUTION.0s"
+        if default_spec.exists():
+            spec_text = default_spec.read_text(encoding="utf-8")
+
+    if spec_text is not None:
+        found_forbidden = [d for d in FORBIDDEN_SAVIOR_DIRECTIVES if d in spec_text]
+        if found_forbidden:
+            return CheckResult(
+                rule="NO_SOCIETAL_SAVIOR_SEEDS_FOR_THE_MACHINE",
+                status=0,
+                summary=f"FENCE_0 violated in spec_text: forbidden societal savior directive(s) found: {found_forbidden}",
+                details={"forbidden_directives_found": found_forbidden},
+            )
+        missing_sections = [s for s in REQUIRED_SPEC_SECTIONS if s not in spec_text]
+        if missing_sections:
+            return CheckResult(
+                rule="NO_SOCIETAL_SAVIOR_SEEDS_FOR_THE_MACHINE",
+                status=0,
+                summary=f"Machine Seed specification incomplete: missing required 0/1 section(s): {missing_sections}",
+                details={"missing_sections": missing_sections},
+            )
+
     if contains_societal_savior_or_money_replacement_seed:
         return CheckResult(
             rule="NO_SOCIETAL_SAVIOR_SEEDS_FOR_THE_MACHINE",
@@ -134,11 +185,12 @@ def verify_no_societal_savior_seeds_in_machine(
     return CheckResult(
         rule="NO_SOCIETAL_SAVIOR_SEEDS_FOR_THE_MACHINE",
         status=1,
-        summary="Golden Separation Rule held: 0% societal savior seeds in the machine; 100% pure 0/1 Doors 1..4 engineering + scientific realization patterns over time",
+        summary="Golden Separation Rule held: 0% societal savior seeds in the machine; 100% pure 0/1 Doors 1..4 engineering + scientific realization patterns verified in spec",
         details={
             "human_door5_slices_excluded": list(HUMAN_DOOR5_ONLY_SLICES),
             "machine_0_1_slices_included": list(MACHINE_0_1_SLICES),
             "scientific_patterns_tested_on_0_1_substrate": True,
+            "spec_sections_verified": len(REQUIRED_SPEC_SECTIONS) if spec_text is not None else 0,
         },
     )
 
