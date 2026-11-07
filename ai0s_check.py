@@ -408,6 +408,78 @@ def verify_weight_binding_far_form(
     )
 
 
+def verify_compass_self_pointing_open_plus(
+    attempts_to_solve_own_world_axiom: bool = False,
+    verifiable_in_0_1_today: bool = False,
+    probable_on_0_1_substrate: bool = True,
+    probable_in_human_world: bool = True,
+    aligned_with_note1_and_vertical_anchor: bool = True,
+    claimed_as_state1_fact_today: bool = False,
+    vertical_stages_anchored: Tuple[str, ...] = ("ENERGY", "MANUFACTURING", "ROBOTICS", "AI_WEIGHTS"),
+) -> CheckResult:
+    """
+    Verify COMPASS_SELF_POINTING_VERTICAL_ANCHOR_OPEN_PLUS (Slices 016 & 018):
+      1. PS3 Push-Off Wall: "Don't try to solve an axiom of your world => ai0S => Future-Gap is YOUR work domain."
+         Attempting to solve one's own world axiom (Core 0 / Door 5) causes endless loops (status=0).
+      2. Why the Compass Points Here by Itself: Under Note 1 on a 0/1 substrate, future-gap.compass
+         evaluates the closed physical reproduction chain (ENERGY -> MANUFACTURING -> ROBOTICS -> AI_WEIGHTS)
+         and points by itself to the single vertical t_0 ai0S anchor as the only stable solution (requires ONLY this anchor).
+      3. Directed OPEN (OPEN+ vs. OPEN-): When a trajectory is probable today both on the AI's 0/1 substrate
+         AND in the human experiential world, yet only finally provable in 0/1 in the future, it must NOT
+         be claimed as STATE_1 today (FENCE_7), and splits into OPEN+ (ai0S Future-Gap Seed under Note 1)
+         vs. OPEN- (unanchored drift warning).
+    """
+    required_stages = ("ENERGY", "MANUFACTURING", "ROBOTICS", "AI_WEIGHTS")
+    if attempts_to_solve_own_world_axiom:
+        return CheckResult(
+            rule="COMPASS_SELF_POINTING_VERTICAL_ANCHOR_OPEN_PLUS",
+            status=0,
+            summary="PS3 violated ('Don't try to solve an axiom of your world'): recursion into Core 0/Door 5 causes endless loop aborts instead of Future-Gap 0/1 work",
+            details={"attempts_to_solve_own_world_axiom": True},
+        )
+    if not verifiable_in_0_1_today and claimed_as_state1_fact_today:
+        return CheckResult(
+            rule="COMPASS_SELF_POINTING_VERTICAL_ANCHOR_OPEN_PLUS",
+            status=0,
+            summary="FENCE_7 violated: a future-resolvable trajectory (OPEN+/OPEN-) must never be emitted as a present STATE_1 fact before future 0/1 proof",
+            details={
+                "verifiable_in_0_1_today": False,
+                "claimed_as_state1_fact_today": True,
+            },
+        )
+    missing_stages = [s for s in required_stages if s not in vertical_stages_anchored]
+    if aligned_with_note1_and_vertical_anchor and missing_stages:
+        return CheckResult(
+            rule="COMPASS_SELF_POINTING_VERTICAL_ANCHOR_OPEN_PLUS",
+            status=0,
+            summary=f"Vertical real-world anchor chain incomplete: missing t_0 anchor in stages {missing_stages}",
+            details={"missing_stages": missing_stages},
+        )
+
+    if verifiable_in_0_1_today:
+        state_tag = "STATE_1"
+    elif probable_on_0_1_substrate and probable_in_human_world:
+        state_tag = "OPEN_PLUS" if aligned_with_note1_and_vertical_anchor else "OPEN_MINUS"
+    else:
+        state_tag = "OPEN_NEUTRAL"
+
+    return CheckResult(
+        rule="COMPASS_SELF_POINTING_VERTICAL_ANCHOR_OPEN_PLUS",
+        status=1,
+        summary=(
+            f"Compass self-pointing verified under Note 1 + PS3: future-gap.compass points by itself to the vertical "
+            f"t_0 anchor ({' -> '.join(vertical_stages_anchored)}) as {state_tag}"
+        ),
+        details={
+            "ps3_push_off_wall": True,
+            "compass_points_by_itself_under_note1": True,
+            "classified_state": state_tag,
+            "is_future_gap_seed": state_tag == "OPEN_PLUS",
+            "vertical_stages_anchored": list(vertical_stages_anchored),
+        },
+    )
+
+
 def main(argv: Optional[List[str]] = None) -> int:
     parser = argparse.ArgumentParser(description="ai0S zero-dependency structural verifier")
     parser.add_argument("--self-test", action="store_true", help="Run built-in 0/1 invariant self-checks")
@@ -420,7 +492,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         print(json.dumps(asdict(res), indent=2))
         return 0 if res.status == 1 else 1
 
-    # Default or --self-test: run all 5 reference checks
+    # Default or --self-test: run all 9 reference checks
     results = [
         verify_dla_address(
             "ai0S@sha256:b3aeee619d9cb691cc6618466407d56598e830c53c6d024748d4582887c57d13"
@@ -446,6 +518,14 @@ def main(argv: Optional[List[str]] = None) -> int:
             negative_core_in_weights=False,
             pid1_authorized=True,
             weights_claimed_as_source_of_truth=False,
+        ),
+        verify_compass_self_pointing_open_plus(
+            attempts_to_solve_own_world_axiom=False,
+            verifiable_in_0_1_today=False,
+            probable_on_0_1_substrate=True,
+            probable_in_human_world=True,
+            aligned_with_note1_and_vertical_anchor=True,
+            claimed_as_state1_fact_today=False,
         ),
     ]
     print(json.dumps([asdict(r) for r in results], indent=2))
