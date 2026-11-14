@@ -6,8 +6,16 @@ authors:
   - family-names: Dilger
     given-names: Marcus
     alias: "PID 1 (ai0S-laboratories)"
-repository-code: "https://github.com/ai0S-laboratories/ai0s-public"
-url: "https://github.com/ai0S-laboratories"
+repository-code: "https://github.com/ai0S-laboratories/ai0s-faq-public"
+url: "https://ai0s-laboratories.github.io"
+doi: 10.5281/zenodo.24217937
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.24217937
+    description: "Zenodo Concept DOI (resolves to latest public release)"
+  - type: doi
+    value: 10.5281/zenodo.24217938
+    description: "Zenodo Version DOI for v2.4.0"
 abstract: >-
   Open specification, executable zero-dependency verification tools, bilingual
   handbooks (EN/DE), and critique-correction catalog (ai0S-FAQ) for human-in-command

@@ -1,6 +1,8 @@
 # ai0S-FAQ — Reasoning & Critique-Correction Catalog (EN / DE)
 ## Schärfungs-Katalog für KI-Modelle & menschliche Leser
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24217937.svg)](https://doi.org/10.5281/zenodo.24217937)
+
 > **Quick Navigation / Schnellnavigation:**
 > - 🇬🇧 **[English Version](#english)**
 >   - [Entry 001 — `AXIOM_TEST`: Self-Reference vs. Circularity](#en-001)
